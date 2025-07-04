@@ -20,9 +20,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Professional Portfolio | Full Stack Developer",
-  description: "Showcasing my skills, projects, and experience as a Full Stack Developer",
-  keywords: ["developer", "portfolio", "full stack", "web development", "frontend", "backend"],
+  title: "Bhathiya Lakshan | Full Stack Developer",
+  description: "Portfolio of Bhathiya Lakshan, a Full Stack Developer specializing in modern web technologies.",
+  keywords: ["Bhathiya Lakshan", "developer", "portfolio", "full stack", "web development", "frontend", "backend"],
 };
 
 export default function RootLayout({
