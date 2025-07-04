@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { IconBrandGithub, IconBrandLinkedin, IconBrandTwitter, IconMail, IconBrandWhatsapp, IconMapPin } from "@tabler/icons-react"
 
@@ -19,48 +19,74 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-muted/20 relative">
+    <section id="contact" className="py-28 md:py-36 bg-gradient-to-b from-background to-muted/30 relative">
       <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-        <div className="mx-auto flex max-w-[68rem] flex-col items-center justify-center gap-5 text-center mb-16">
-          <Badge className="px-3.5 py-1.5 text-base font-medium mb-2" variant="outline">Get In Touch</Badge>
-          <h2 className="font-bold text-3xl sm:text-5xl md:text-6xl tracking-tight">Contact Me</h2>
-          <p className="max-w-[85%] text-muted-foreground text-lg md:text-xl mt-4">
-            Let&apos;s connect and discuss how we can work together
-          </p>
+        <div className="mx-auto flex max-w-[68rem] flex-col items-center justify-center gap-6 text-center mb-20">
+          <div className="inline-flex items-center justify-center p-2 bg-primary/10 backdrop-blur-sm rounded-full mb-4 border border-primary/20">
+            <Badge className="px-6 py-2 text-lg font-medium bg-primary text-primary-foreground rounded-full shadow-md">Get In Touch</Badge>
+          </div>
+          
+          <h2 className="font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-primary-foreground">
+            Contact Me
+          </h2>
+          
+          <div className="relative">
+            <p className="max-w-[75%] text-muted-foreground text-lg md:text-xl mt-8 mx-auto">
+              Let&apos;s connect and discuss how we can work together on your next project
+            </p>
+            <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 w-48 h-1.5 bg-gradient-to-r from-transparent via-primary/30 to-transparent rounded-full"></div>
+          </div>
         </div>
 
-        {/* Contact Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {/* Email Card */}
-          <Card className="overflow-hidden border-border/40 shadow-sm hover:shadow-md transition-all duration-300">
-            <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
-              <div className="p-3 rounded-full bg-primary/10 text-primary">
-                <IconMail className="h-8 w-8" />
+        {/* Featured contact method - Email */}
+        <div className="max-w-3xl mx-auto mb-16">
+          <Card className="p-8 border-primary/20 bg-gradient-to-br from-background to-muted/40 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 group">
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              <div className="flex-shrink-0 w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center p-5 border border-primary/30">
+                <IconMail className="h-10 w-10 text-primary" />
               </div>
-              <h3 className="text-xl font-bold">Email Me</h3>
-              <p className="text-muted-foreground">
-                Send me an email and I&apos;ll get back to you as soon as possible
-              </p>
-              <Button onClick={handleEmailClick} className="mt-2 w-full">
-                Open Email App
-              </Button>
-            </CardContent>
+              
+              <div className="flex-grow text-center md:text-left">
+                <h3 className="text-2xl font-bold mb-2">Email Me</h3>
+                <p className="text-muted-foreground mb-6">
+                  Send me an email and I&apos;ll get back to you as soon as possible
+                </p>
+                <Button 
+                  size="lg" 
+                  onClick={handleEmailClick}
+                  className="rounded-full px-8 py-6 text-lg bg-primary hover:bg-primary/90 shadow-md group-hover:shadow-lg transition-all flex items-center gap-2"
+                >
+                  <span>Open Email App</span>
+                  <IconMail className="h-5 w-5 ml-1 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </div>
+            </div>
           </Card>
-
-          {/* WhatsApp Card */}
-          <Card className="overflow-hidden border-border/40 shadow-sm hover:shadow-md transition-all duration-300">
-            <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
-              <div className="p-3 rounded-full bg-green-500/10 text-green-500">
-                <IconBrandWhatsapp className="h-8 w-8" />
+        </div>
+        
+        {/* WhatsApp Card - Modernized */}
+        <div className="max-w-3xl mx-auto mb-16">
+          <Card className="p-8 border-green-500/20 bg-gradient-to-br from-background to-green-50/10 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 group dark:from-background dark:to-green-950/10">
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              <div className="flex-shrink-0 w-24 h-24 rounded-full bg-green-500/10 flex items-center justify-center p-5 border border-green-500/30">
+                <IconBrandWhatsapp className="h-10 w-10 text-green-500" />
               </div>
-              <h3 className="text-xl font-bold">WhatsApp</h3>
-              <p className="text-muted-foreground">
-                Message me directly on WhatsApp for a quick response
-              </p>
-              <Button onClick={handleWhatsAppClick} className="mt-2 w-full bg-green-500 hover:bg-green-600">
-                Message on WhatsApp
-              </Button>
-            </CardContent>
+              
+              <div className="flex-grow text-center md:text-left">
+                <h3 className="text-2xl font-bold mb-2">WhatsApp</h3>
+                <p className="text-muted-foreground mb-6">
+                  Message me directly on WhatsApp for a quick response
+                </p>
+                <Button 
+                  size="lg" 
+                  onClick={handleWhatsAppClick}
+                  className="rounded-full px-8 py-6 text-lg bg-green-500 hover:bg-green-600 shadow-md group-hover:shadow-lg transition-all flex items-center gap-2"
+                >
+                  <span>Message on WhatsApp</span>
+                  <IconBrandWhatsapp className="h-5 w-5 ml-1 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </div>
+            </div>
           </Card>
         </div>
 
