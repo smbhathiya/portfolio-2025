@@ -1,0 +1,29 @@
+@keyframes marquee-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-infinite-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-infinite {
+  animation: marquee-infinite 40s linear infinite;
+}
+
+.animate-marquee-infinite-reverse {
+  animation: marquee-infinite-reverse 35s linear infinite;
+}
+
+.animate-marquee-infinite-fast {
+  animation: marquee-infinite 25s linear infinite;
+}
