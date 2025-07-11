@@ -25,13 +25,13 @@ export function HeroSection() {
           <div className="flex flex-col justify-center space-y-8 mx-auto w-full max-w-2xl">
             <div className="space-y-6">
               <div className="space-y-2">
-                <p className="text-lg font-medium text-muted-foreground">
-                  I am Bhathiya
+                <p className="text-xl font-medium text-muted-foreground">
+                  I&apos;M BHATHIYA
                 </p>
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl/none">
                   <span className="text-primary">Next-Level Web</span>
                   <br />
-                  <span className="text-primary">Developer.</span>
+                  <span className="text-primary">Developer</span>
                 </h1>
               </div>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-[600px]">
