@@ -1,108 +1,143 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { IconArrowDown, IconBrandGithub, IconBrandLinkedin, IconMail } from "@tabler/icons-react"
-import Link from "next/link"
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import {
+  IconDownload,
+  IconBrandTwitter,
+  IconBrandDribbble,
+  IconBrandLinkedin,
+  IconBrandGithub,
+} from "@tabler/icons-react";
 
 export function HeroSection() {
   return (
-    <section className="py-16 md:py-24 flex items-center justify-center">
-      <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-        <div className="grid gap-10 lg:grid-cols-[1fr_500px] lg:gap-16 xl:grid-cols-[1fr_550px] place-items-center">
-          <div className="flex flex-col justify-center space-y-5  mx-auto w-full">
-            <div className="space-y-3">
-              <Badge className="inline-block mx-auto" variant="secondary">Available for work</Badge>
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                Hi, I&apos;m <span className="text-primary">Bhathiya Lakshan</span>
-              </h1>
-              <p className="text-muted-foreground md:text-xl max-w-[700px] mx-auto">
-                I build accessible, responsive, and performant web applications using modern technologies.
+    <section className="py-16 md:py-24 flex items-center justify-center min-h-screen relative overflow-hidden">
+      {/* Large background text */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+        <div className="text-[12rem] md:text-[16rem] lg:text-[20rem] xl:text-[24rem] font-bold text-muted-foreground/5 leading-none whitespace-nowrap">
+          DEVELOPER
+        </div>
+      </div>
+
+      <div className="container px-4 md:px-6 max-w-7xl mx-auto relative z-10">
+        <div className="grid gap-16 lg:grid-cols-2 lg:gap-24 xl:gap-32 place-items-center">
+          <div className="flex flex-col justify-center space-y-8 mx-auto w-full max-w-2xl">
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <p className="text-lg font-medium text-muted-foreground">
+                  I am Bhathiya
+                </p>
+                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl/none">
+                  <span className="text-primary">Next-Level Web</span>
+                  <br />
+                  <span className="text-primary">Developer.</span>
+                </h1>
+              </div>
+              <p className="text-muted-foreground text-lg leading-relaxed max-w-[600px]">
+                I break down complex user experience problems to create
+                integrity focussed solutions that connect billions of people
               </p>
             </div>
-            <div className="flex flex-col gap-3 min-[400px]:flex-row ">
-              <Button asChild size="lg">
-                <Link href="#projects">
-                  View Projects <IconArrowDown className="ml-2 h-4 w-4" />
-                </Link>
+
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
+              <Button size="lg" variant="outline" className="w-fit">
+                <IconDownload className="mr-2 h-4 w-4" />
+                Download CV
               </Button>
-              <Button variant="outline" size="lg" asChild>
-                <Link href="/contact">
-                  Contact Me
-                </Link>
-              </Button>
-            </div>
-            <div className="flex gap-4 mt-4">
-              <Button variant="ghost" size="icon" asChild>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                  <IconBrandGithub className="h-5 w-5" />
-                </a>
-              </Button>
-              <Button variant="ghost" size="icon" asChild>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                  <IconBrandLinkedin className="h-5 w-5" />
-                </a>
-              </Button>
-              <Button variant="ghost" size="icon" asChild>
-                <a href="mailto:your-email@example.com" aria-label="Email">
-                  <IconMail className="h-5 w-5" />
-                </a>
-              </Button>
+
+              <div className="flex gap-4">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full border border-border/50 hover:border-primary/50"
+                  asChild
+                >
+                  <a
+                    href="https://twitter.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Twitter"
+                  >
+                    <IconBrandTwitter className="h-5 w-5" />
+                  </a>
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full border border-border/50 hover:border-primary/50"
+                  asChild
+                >
+                  <a
+                    href="https://dribbble.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Dribbble"
+                  >
+                    <IconBrandDribbble className="h-5 w-5" />
+                  </a>
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full border border-border/50 hover:border-primary/50"
+                  asChild
+                >
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                  >
+                    <IconBrandLinkedin className="h-5 w-5" />
+                  </a>
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full border border-border/50 hover:border-primary/50"
+                  asChild
+                >
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                  >
+                    <IconBrandGithub className="h-5 w-5" />
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
-          <div className="flex items-center justify-center w-full">
-            <div className="relative md:w-[400px] lg:w-[450px] xl:w-[500px] aspect-square">
-              {/* Multiple colored gradient backgrounds with animation */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/60 to-primary-600/60 rounded-full blur-xl opacity-70 animate-pulse" style={{ animationDuration: '6s' }} />
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary-500/40 to-primary-500/40 rounded-full blur-xl opacity-50 animate-pulse" style={{ animationDuration: '10s', animationDelay: '1s' }} />
-              
-              {/* Decorative circles */}
-              <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-primary/30 rounded-full blur-lg" />
-              <div className="absolute -top-8 -left-8 w-32 h-32 bg-primary/30 rounded-full blur-lg" />
-              
-              {/* Image container with subtle glow */}
-              <div className="relative z-10 aspect-square overflow-hidden rounded-full border border-white/20 bg-background shadow-xl md:w-[400px] lg:w-[450px] xl:w-[500px]">
-                {/* Subtle overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-dark/10 to-transparent z-10" />
-                
+
+          <div className="flex items-center justify-center w-full lg:justify-end">
+            <div className="relative">
+              {/* Background decorative elements */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/10 rounded-[3rem] blur-2xl scale-110 opacity-60 rotate-3" />
+              <div className="absolute -inset-4 bg-gradient-to-tr from-primary/10 to-transparent rounded-[3rem] blur-xl opacity-40 rotate-2" />
+
+              {/* Main image container with rotation */}
+              <div className="relative z-10 w-80 h-96 md:w-96 md:h-[28rem] lg:w-[400px] lg:h-[500px] overflow-hidden rounded-[3rem] border border-white/10 bg-background shadow-2xl rotate-3 hover:rotate-1 transition-transform duration-300">
+                {/* Subtle gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent z-10" />
+
                 <Image
                   src="/me.jpg"
                   alt="Profile image"
                   fill
                   className="object-cover"
                   priority
-                  sizes="(max-width: 768px) 100vw, 350px"
+                  sizes="(max-width: 768px) 320px, 400px"
                 />
               </div>
-              
-              {/* Additional animated decoration */}
-              <div className="absolute -inset-1 bg-gradient-to-tr from-primary/30 via-primary-500/20 to-primary-600/30 rounded-full blur-2xl opacity-50 animate-pulse" style={{ animationDuration: '8s' }} />
-              
-              {/* Subtle orbiting dot */}
-              <div className="absolute w-4 h-4 bg-primary rounded-full opacity-70 blur-sm"
-                style={{
-                  animation: 'orbit 8s linear infinite',
-                  top: 'calc(50% - 20px)',
-                  left: 'calc(50% - 20px)',
-                  transformOrigin: '175px 20px'
-                }} />
+
+              {/* Additional subtle glow effects */}
+              <div className="absolute -inset-6 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 rounded-[4rem] blur-3xl opacity-30 rotate-1" />
             </div>
-            
-            {/* Add keyframe animation for the orbit effect */}
-            <style jsx>{`
-              @keyframes orbit {
-                from {
-                  transform: rotate(0deg) translateX(175px) rotate(0deg);
-                }
-                to {
-                  transform: rotate(360deg) translateX(175px) rotate(-360deg);
-                }
-              }
-            `}</style>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
