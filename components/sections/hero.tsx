@@ -12,7 +12,7 @@ import {
 
 export function HeroSection() {
   return (
-    <section className="py-16 md:py-24 flex items-center justify-center min-h-screen relative overflow-hidden">
+    <section id="home" className="py-16 md:py-24 flex items-center justify-center min-h-screen relative overflow-hidden">
       {/* Large background text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
         <div className="text-[12rem] md:text-[16rem] lg:text-[20rem] xl:text-[24rem] font-bold text-muted-foreground/5 leading-none whitespace-nowrap">
