@@ -95,7 +95,7 @@ export function SkillsSection() {
   ];
 
   return (
-    <section id="skills" className="py-32 md:py-44 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden">
+    <section id="skills" className="py-32 md:py-44 relative overflow-hidden">
       {/* Large background text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
         <div className="text-[8rem] md:text-[12rem] lg:text-[16rem] xl:text-[20rem] font-bold text-muted-foreground/3 leading-none whitespace-nowrap">
