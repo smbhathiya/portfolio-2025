@@ -13,7 +13,7 @@ export function ProjectsSection() {
   const otherProjects = projectsData.slice(3);
 
   return (
-    <section id="projects" className="py-28 md:py-36 bg-gradient-to-b from-background to-muted/30 relative">
+    <section id="projects" className="py-28 md:py-36 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden">
       <div className="container px-4 md:px-6 max-w-7xl mx-auto">
         <div className="mx-auto flex max-w-[68rem] flex-col items-center justify-center gap-6 text-center mb-20">
           <h2 className="font-bold text-4xl sm:text-5xl md:text-6xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-primary-foreground">
