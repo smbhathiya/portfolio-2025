@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import {  IconHeart } from "@tabler/icons-react";
+import { IconHeart } from "@tabler/icons-react";
+import { ScrollToTopButton } from "../ui/scroll-to-top-button";
+import { WhatsAppMessageButton } from "../ui/whatsapp-message-button";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -82,6 +84,9 @@ export function Footer() {
         {/* Subtle decorative element */}
         <div className="hidden md:block absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
       </div>
+      {/* Scroll to top and WhatsApp buttons */}
+      <ScrollToTopButton />
+      <WhatsAppMessageButton />
     </footer>
   );
 }
