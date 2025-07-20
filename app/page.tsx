@@ -11,7 +11,7 @@ export const metadata = {
     "backend",
     "IMOS",
     "Ishara Madhushan Online School",
-    "Digi Pro Solutions"
+    "Digi Pro Solutions",
   ],
   openGraph: {
     title: "Home | Bhathiya Lakshan Portfolio",
