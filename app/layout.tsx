@@ -54,10 +54,6 @@ twitter: {
 icons: {
   icon: "/favicon.ico",
 },
-themeColor: [
-  { media: "(prefers-color-scheme: light)", color: "#fafafa" },
-  { media: "(prefers-color-scheme: dark)", color: "#18181b" },
-],
 robots: {
   index: true,
   follow: true,
