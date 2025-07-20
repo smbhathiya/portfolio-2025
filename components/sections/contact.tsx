@@ -6,6 +6,7 @@ import {
   IconBrandGithub,
   IconBrandLinkedin,
   IconBrandTwitter,
+  IconBrandFacebook,
   IconMail,
   IconBrandWhatsapp,
   IconMapPin,
@@ -98,45 +99,60 @@ export function ContactSection() {
               variant="outline"
               size="lg"
               asChild
-              className="rounded-full h-16 w-16 p-0"
+              className="rounded-full h-16 w-16 p-0 border border-primary hover:bg-primary/10 group"
             >
               <a
-                href="https://github.com"
+                href="https://github.com/smbhathiya"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
               >
-                <IconBrandGithub className="h-6 w-6" />
+                <IconBrandGithub className="h-10 w-10 text-muted-foreground group-hover:text-primary transition-colors" />
               </a>
             </Button>
             <Button
               variant="outline"
               size="lg"
               asChild
-              className="rounded-full h-16 w-16 p-0"
+              className="rounded-full h-16 w-16 p-0 border border-primary hover:bg-primary/10 group"
             >
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/bhathiya-lakshan-91579722a/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
               >
-                <IconBrandLinkedin className="h-6 w-6" />
+                <IconBrandLinkedin className="h-10 w-10 text-muted-foreground group-hover:text-primary transition-colors" />
               </a>
             </Button>
             <Button
               variant="outline"
               size="lg"
               asChild
-              className="rounded-full h-16 w-16 p-0"
+              className="rounded-full h-16 w-16 p-0 border border-primary hover:bg-primary/10 group"
             >
               <a
-                href="https://twitter.com"
+                href="https://x.com/smbhathiya"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Twitter"
               >
-                <IconBrandTwitter className="h-6 w-6" />
+                <IconBrandTwitter className="h-10 w-10 text-muted-foreground group-hover:text-primary transition-colors" />
+              </a>
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              asChild
+              className="rounded-full h-16 w-16 p-0 border border-primary hover:bg-primary/10 group"
+            >
+              <a
+                href="https://www.facebook.com/smbhathiya"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <IconBrandFacebook className="h-10 w-10 text-muted-foreground group-hover:text-primary transition-colors" />
               </a>
             </Button>
           </div>
