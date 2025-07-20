@@ -145,7 +145,7 @@ export function ContactSection() {
         <div className="mt-16 text-center">
           <div className="flex items-center justify-center gap-2 text-muted-foreground">
             <IconMapPin className="h-5 w-5" />
-            <span>Colombo, Sri Lanka</span>
+            <span>Kadawatha, Sri Lanka</span>
           </div>
         </div>
         {/* Decorative elements matching other sections */}
