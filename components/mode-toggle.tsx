@@ -8,11 +8,11 @@ import { Button } from "@/components/ui/button";
 export function ModeToggle() {
   const { setTheme, resolvedTheme } = useTheme();
 
-  // Only render after hydration
-  if (!resolvedTheme) return null;
-
   const isDark = resolvedTheme === "dark";
-  const toggleTheme = () => setTheme(isDark ? "light" : "dark");
+
+  const toggleTheme = () => {
+    setTheme(isDark ? "light" : "dark");
+  };
 
   return (
     <Button
