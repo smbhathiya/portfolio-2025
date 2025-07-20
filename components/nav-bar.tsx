@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { ModeToggle } from "./mode-toggle";
+import dynamic from "next/dynamic";
+const ModeToggle = dynamic(() => import("./mode-toggle").then(mod => mod.ModeToggle), { ssr: false });
 import { cn } from "@/lib/utils";
 
 const navItems = [
