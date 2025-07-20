@@ -1,16 +1,19 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { IconBrandGithub, IconBrandLinkedin, IconBrandTwitter, IconMail, IconBrandWhatsapp, IconMapPin } from "@tabler/icons-react"
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import {
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconBrandTwitter,
+  IconMail,
+  IconBrandWhatsapp,
+  IconMapPin,
+} from "@tabler/icons-react";
 
 export function ContactSection() {
   const handleEmailClick = () => {
-    window.location.href = "mailto:your-email@example.com?subject=Portfolio%20Inquiry";
-  };
-  const handleWhatsAppClick = () => {
-    const whatsappNumber = "94777123456";
-    window.open(`https://wa.me/${whatsappNumber}?text=Hi%20Bhathiya,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect.`, "_blank");
+    window.location.href = "mailto:info@bhathiya.dev";
   };
 
   return (
@@ -24,12 +27,15 @@ export function ContactSection() {
       <div className="container px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <div className="mx-auto flex max-w-[68rem] flex-col items-center justify-center gap-8 text-center mb-16">
           <div className="space-y-4">
-            <p className="text-lg font-medium text-muted-foreground">Let&apos;s connect</p>
+            <p className="text-lg font-medium text-muted-foreground">
+              Let&apos;s connect
+            </p>
             <h2 className="font-bold text-4xl sm:text-5xl md:text-6xl">
               Get In <span className="text-primary">Touch</span>
             </h2>
             <p className="max-w-[600px] text-muted-foreground text-lg md:text-xl leading-relaxed">
-              Let&apos;s connect and discuss how we can work together on your next project
+              Let&apos;s connect and discuss how we can work together on your
+              next project
             </p>
           </div>
         </div>
@@ -42,11 +48,16 @@ export function ContactSection() {
               </div>
               <h3 className="text-xl font-bold mb-2">Email Me</h3>
               <p className="text-muted-foreground mb-4 text-center">
-                Send me an email and I&apos;ll get back to you as soon as possible
+                Send me an email and I&apos;ll get back to you as soon as
+                possible
               </p>
-              <Button size="lg" onClick={handleEmailClick} className="rounded-full px-8 py-4 text-lg bg-primary hover:bg-primary/90 shadow-md group-hover:shadow-lg transition-all flex items-center gap-2">
-                <span>Open Email App</span>
-                <IconMail className="h-5 w-5 ml-1 group-hover:translate-x-1 transition-transform" />
+              <Button
+                size="lg"
+                onClick={handleEmailClick}
+                className="rounded-full cursor-pointer px-8 py-4 text-lg bg-primary hover:bg-primary/90 shadow-md group-hover:shadow-lg transition-all flex items-center gap-2"
+              >
+                <span>Send Email</span>
+                <IconMail className="h-10 w-10" />
               </Button>
             </div>
           </Card>
@@ -60,29 +71,71 @@ export function ContactSection() {
               <p className="text-muted-foreground mb-4 text-center">
                 Message me directly on WhatsApp for a quick response
               </p>
-              <Button size="lg" onClick={handleWhatsAppClick} className="rounded-full px-8 py-4 text-lg bg-green-500 hover:bg-green-600 shadow-md group-hover:shadow-lg transition-all flex items-center gap-2">
-                <span>Message on WhatsApp</span>
-                <IconBrandWhatsapp className="h-5 w-5 ml-1 group-hover:translate-x-1 transition-transform" />
+              <Button
+                size="lg"
+                asChild
+                className="rounded-full px-8 py-4 text-lg bg-green-500 hover:bg-green-600 shadow-md group-hover:shadow-lg transition-all flex items-center gap-2"
+              >
+                <a
+                  href="https://wa.me/94768941816"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>Message on WhatsApp</span>
+                  <IconBrandWhatsapp className="h-10 w-10" />
+                </a>
               </Button>
             </div>
           </Card>
         </div>
         {/* Social Links */}
         <div className="mt-16 text-center">
-          <h3 className="text-xl font-semibold mb-8">Connect With Me On Social Media</h3>
+          <h3 className="text-xl font-semibold mb-8">
+            Connect With Me On Social Media
+          </h3>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button variant="outline" size="lg" asChild className="rounded-full h-16 w-16 p-0">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <Button
+              variant="outline"
+              size="lg"
+              asChild
+              className="rounded-full h-16 w-16 p-0"
+            >
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
                 <IconBrandGithub className="h-6 w-6" />
               </a>
             </Button>
-            <Button variant="outline" size="lg" asChild className="rounded-full h-16 w-16 p-0">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <Button
+              variant="outline"
+              size="lg"
+              asChild
+              className="rounded-full h-16 w-16 p-0"
+            >
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
                 <IconBrandLinkedin className="h-6 w-6" />
               </a>
             </Button>
-            <Button variant="outline" size="lg" asChild className="rounded-full h-16 w-16 p-0">
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+            <Button
+              variant="outline"
+              size="lg"
+              asChild
+              className="rounded-full h-16 w-16 p-0"
+            >
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+              >
                 <IconBrandTwitter className="h-6 w-6" />
               </a>
             </Button>
