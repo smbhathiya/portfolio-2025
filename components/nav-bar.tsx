@@ -2,14 +2,16 @@
 
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-const ModeToggle = dynamic(() => import("./mode-toggle").then(mod => mod.ModeToggle), { ssr: false });
+const ModeToggle = dynamic(
+  () => import("./mode-toggle").then((mod) => mod.ModeToggle),
+  { ssr: false }
+);
 import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -24,28 +26,23 @@ export function NavBar() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-
-      // Update navbar background based on scroll
       setIsScrolled(scrollY > 50);
 
-      // Scrollspy logic
-      const sections = navItems.map(({ href }) => {
-        const el = document.getElementById(href.replace("#", ""));
-        if (!el) return { href, offsetTop: Number.POSITIVE_INFINITY };
-        return { href, offsetTop: el.offsetTop };
-      });
-
-      let current = sections[0];
-      for (let i = 0; i < sections.length; i++) {
-        const section = sections[i];
-        if (scrollY + NAVBAR_HEIGHT + 100 >= section.offsetTop) {
-          current = section;
-        } else {
-          break;
+      // Always highlight the section whose top is closest to the navbar, even if all are below
+      let closestIdx = 0;
+      let minDist = Number.POSITIVE_INFINITY;
+      navItems.forEach((item, idx) => {
+        const el = document.getElementById(item.href.replace("#", ""));
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          const dist = Math.abs(rect.top - NAVBAR_HEIGHT - 10);
+          if (dist < minDist) {
+            minDist = dist;
+            closestIdx = idx;
+          }
         }
-      }
-
-      setActiveSection(current.href);
+      });
+      setActiveSection(navItems[closestIdx].href);
     };
 
     let ticking = false;
@@ -86,41 +83,14 @@ export function NavBar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
           isScrolled
-            ? "bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-lg"
+            ? "bg-background/80 backdrop-blur-xl shadow-lg"
             : "bg-transparent"
         )}
         style={{ height: NAVBAR_HEIGHT }}
       >
         <div className="flex items-center w-full max-w-6xl mx-auto px-6 md:px-8 h-full">
-          {/* Logo/Brand */}
-
-          {/* Desktop nav - centered with floating pill design */}
-          <nav className="hidden md:flex flex-1 justify-center">
-            <div className="flex items-center gap-2 px-4 py-2 bg-background/20 backdrop-blur-md rounded-full border border-border/30 shadow-lg">
-              {navItems.map((item) => (
-                <div key={item.href} className="relative">
-                  <a
-                    href={item.href}
-                    onClick={(e) => handleNavClick(e, item.href)}
-                    className={cn(
-                      "relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full hover:scale-105",
-                      activeSection === item.href
-                        ? "text-primary-foreground shadow-md"
-                        : "text-muted-foreground hover:text-foreground"
-                    )}
-                  >
-                    {activeSection === item.href && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80 rounded-full shadow-lg animate-in fade-in-0 zoom-in-95 duration-300" />
-                    )}
-                    <span className="relative z-10">{item.label}</span>
-                  </a>
-                </div>
-              ))}
-            </div>
-          </nav>
-
-          {/* Mobile nav button */}
-          <div className="md:hidden flex-1 flex justify-end mr-4">
+          {/* Mobile nav button - now on the left for mobile */}
+          <div className="md:hidden flex-shrink-0 flex justify-start mr-4">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-3 hover:bg-primary/10 rounded-full transition-all duration-200 hover:scale-105 active:scale-95"
@@ -154,12 +124,36 @@ export function NavBar() {
             </button>
           </div>
 
-          {/* ModeToggle with enhanced styling */}
-          <div className="flex-shrink-0">
-            <div className="p-1 bg-background/20 backdrop-blur-md rounded-full border border-border/30">
-              <ModeToggle />
+          {/* Desktop nav - centered with floating pill design */}
+          <nav className="hidden md:flex flex-1 justify-center">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full">
+              {navItems.map((item) => (
+                <div key={item.href} className="relative">
+                  <a
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className={cn(
+                      "relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full hover:scale-105",
+                      activeSection === item.href
+                        ? "text-primary-foreground shadow-md"
+                        : "text-muted-foreground hover:text-foreground"
+                    )}
+                  >
+                    {activeSection === item.href && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80 rounded-full shadow-lg animate-in fade-in-0 zoom-in-95 duration-300" />
+                    )}
+                    <span className="relative z-10">{item.label}</span>
+                  </a>
+                </div>
+              ))}
+              {/* ModeToggle moved here */}
+              <div className="ml-2">
+                <ModeToggle />
+              </div>
             </div>
-          </div>
+          </nav>
+
+          {/* Remove ModeToggle's separate container on desktop */}
         </div>
       </div>
 
