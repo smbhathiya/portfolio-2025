@@ -26,9 +26,9 @@ export function AboutSection() {
       <div className="container px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <div className="mx-auto flex max-w-[68rem] flex-col items-center justify-center gap-8 text-center mb-16">
           <div className="space-y-4">
-            <p className="text-lg font-medium text-muted-foreground">
+            {/* <p className="text-lg font-medium text-muted-foreground">
               Get to know me
-            </p>
+            </p> */}
             <h2 className="font-bold text-4xl sm:text-5xl md:text-6xl">
               My <span className="text-primary">Journey</span>
             </h2>

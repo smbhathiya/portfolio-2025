@@ -49,7 +49,7 @@ export function ProjectsSection() {
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-40 group-hover:opacity-70 transition-opacity duration-500" />
-                  <div className="absolute top-4 right-4 flex flex-wrap gap-2 max-w-[70%] justify-end">
+                  {/* <div className="absolute top-4 right-4 flex flex-wrap gap-2 max-w-[70%] justify-end">
                     {project.tag.slice(0, 3).map((tag, i) => (
                       <Badge
                         key={i}
@@ -59,7 +59,7 @@ export function ProjectsSection() {
                         {tag}
                       </Badge>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
                 <div className="absolute -bottom-6 -right-6 w-24 h-24 rounded-full bg-primary/5 blur-2xl -z-10"></div>
                 <div className="absolute -top-6 -left-6 w-32 h-32 rounded-full bg-secondary/5 blur-2xl -z-10"></div>
@@ -72,17 +72,6 @@ export function ProjectsSection() {
                   <p className="text-muted-foreground text-lg leading-relaxed">
                     {project.description}
                   </p>
-                </div>
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {project.tag.map((tag, i) => (
-                    <Badge
-                      key={i}
-                      variant="outline"
-                      className="px-3 py-1 text-sm font-medium border-primary/30 hover:border-primary/60 transition-colors"
-                    >
-                      {tag}
-                    </Badge>
-                  ))}
                 </div>
                 <div className="flex gap-5">
                   {project.gitUrl && (
@@ -128,12 +117,6 @@ export function ProjectsSection() {
 
         <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center mb-16">
           <div className="inline-flex items-center justify-center p-1.5 bg-secondary/10 backdrop-blur-sm rounded-full mb-2 border border-secondary/20">
-            <Badge
-              variant="secondary"
-              className="px-4 py-1 text-base font-medium rounded-full shadow-sm"
-            >
-              More Work
-            </Badge>
           </div>
           <h3 className="text-2xl md:text-4xl font-bold tracking-tight">
             Other Notable Projects
@@ -157,7 +140,7 @@ export function ProjectsSection() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute top-3 right-3 z-20 flex flex-wrap gap-1.5 justify-end">
+                {/* <div className="absolute top-3 right-3 z-20 flex flex-wrap gap-1.5 justify-end">
                   {project.tag.slice(0, 2).map((tag, i) => (
                     <Badge
                       key={i}
@@ -167,7 +150,7 @@ export function ProjectsSection() {
                       {tag}
                     </Badge>
                   ))}
-                </div>
+                </div> */}
               </div>
               <CardHeader className="p-6 pb-3 relative z-20">
                 <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors duration-300">
@@ -178,7 +161,7 @@ export function ProjectsSection() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-6 pt-0 flex-grow">
-                <div className="flex flex-wrap gap-2 mt-4">
+                {/* <div className="flex flex-wrap gap-2 mt-4">
                   {project.tag.map((tag, i) => (
                     <Badge
                       key={i}
@@ -188,7 +171,7 @@ export function ProjectsSection() {
                       {tag}
                     </Badge>
                   ))}
-                </div>
+                </div> */}
               </CardContent>
               <CardFooter className="p-6 pt-2 flex justify-between border-t border-border/30 bg-muted/20">
                 <div className="flex space-x-3">

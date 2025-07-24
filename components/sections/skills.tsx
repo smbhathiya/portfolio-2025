@@ -107,9 +107,9 @@ export function SkillsSection() {
         {/* Section header matching the about section style */}
         <div className="mx-auto flex max-w-[68rem] flex-col items-center justify-center gap-8 text-center mb-16">
           <div className="space-y-4">
-            <p className="text-lg font-medium text-muted-foreground">
+            {/* <p className="text-lg font-medium text-muted-foreground">
               My Technical Arsenal
-            </p>
+            </p> */}
             <h2 className="font-bold text-4xl sm:text-5xl md:text-6xl">
               Tech <span className="text-primary">Stack</span>
             </h2>

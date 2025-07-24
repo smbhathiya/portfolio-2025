@@ -28,11 +28,11 @@ export function ContactSection() {
       <div className="container px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <div className="mx-auto flex max-w-[68rem] flex-col items-center justify-center gap-8 text-center mb-16">
           <div className="space-y-4">
-            <p className="text-lg font-medium text-muted-foreground">
+            {/* <p className="text-lg font-medium text-muted-foreground">
               Let&apos;s connect
-            </p>
+            </p> */}
             <h2 className="font-bold text-4xl sm:text-5xl md:text-6xl">
-              Get In <span className="text-primary">Touch</span>
+              Let&apos;s <span className="text-primary">Connect</span>
             </h2>
             <p className="max-w-[600px] text-muted-foreground text-lg md:text-xl leading-relaxed">
               Let&apos;s connect and discuss how we can work together on your
