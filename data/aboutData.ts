@@ -2,7 +2,17 @@
 
 export const workExperience = [
   {
-    title: "Software Engineer & IT Manager",
+    title: "Lead Software Engineer, IT Manager",
+    company: "Digi Pro Solutions",
+    duration: "April 2025 - Present",
+    badge: "April 2025 - Present",
+    icon: "briefcase",
+    badgeMobile: true,
+    description:
+      "Leading software engineering teams and managing IT operations. Overseeing project delivery, architecture, and technology strategy for business growth.",
+  },
+  {
+    title: "Software Engineer, IT Manager",
     company: "IMOS",
     duration: "April 2025 - Present",
     badge: "April 2025 - Present",

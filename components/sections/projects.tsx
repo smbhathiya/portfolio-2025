@@ -2,18 +2,16 @@
 
 import projectsData from "@/data/projects"
 import Image from "next/image"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { IconBrandGithub, IconExternalLink } from "@tabler/icons-react"
 
 export function ProjectsSection() {
-  // Select main 3 projects (by id or order)
   const mainProjects = projectsData.slice(0, 3);
   const otherProjects = projectsData.slice(3);
 
   return (
-    <section id="projects" className="py-28 md:py-36 relative overflow-hidden">
+    <section id="projects" className="py-6 md:py-6 relative overflow-hidden">
       <div className="container px-4 md:px-6 max-w-7xl mx-auto">
         <div className="mx-auto flex max-w-[68rem] flex-col items-center justify-center gap-6 text-center mb-20">
           <h2 className="font-bold text-4xl sm:text-5xl md:text-6xl">
@@ -119,7 +117,7 @@ export function ProjectsSection() {
           <div className="inline-flex items-center justify-center p-1.5 bg-secondary/10 backdrop-blur-sm rounded-full mb-2 border border-secondary/20">
           </div>
           <h3 className="text-2xl md:text-4xl font-bold tracking-tight">
-            Other Notable Projects
+            Other Projects
           </h3>
         </div>
 

@@ -65,7 +65,7 @@ export function Footer() {
                 href="mailto:info@bhathiya.dev"
                 className="hover:text-primary transition-colors"
               >
-                your-email@example.com
+                info@bhathiya.dev
               </a>
               <p>Kadawatha, Sri Lanka</p>
             </div>
