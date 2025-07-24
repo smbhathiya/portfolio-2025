@@ -16,7 +16,7 @@ export function HeroSection() {
       {/* Large background text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
         <div className="text-[12rem] md:text-[16rem] lg:text-[20rem] xl:text-[24rem] font-bold text-muted-foreground/5 leading-none whitespace-nowrap">
-          DEVELOPER
+          BHATHIYA
         </div>
       </div>
 
@@ -25,26 +25,24 @@ export function HeroSection() {
           <div className="flex flex-col justify-center space-y-8 mx-auto w-full max-w-2xl">
             <div className="space-y-6">
               <div className="space-y-2">
-                <p className="text-xl font-medium text-muted-foreground">
+                {/* <p className="text-xl font-medium text-muted-foreground">
                   I&apos;M BHATHIYA
-                </p>
+                </p> */}
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl/none">
-                  <span className="text-primary">Next-Level Web</span>
-                  <br />
-                  <span className="text-primary">Developer</span>
+                  <span className="text-primary">Bhathiya Lakshan</span>
+                 
                 </h1>
               </div>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-[600px]">
-                I break down complex user experience problems to create
-                integrity focussed solutions that connect billions of people
+                Hi, I&apos;m Bhathiya Lakshan – passionate about breaking down complex user experience problems to craft integrity-focused solutions. I specialize in creating impactful digital experiences that connect and inspire people worldwide.
               </p>
             </div>
 
             <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
-              <Button size="lg" variant="outline" className="w-fit">
+              {/* <Button size="lg" variant="outline" className="w-fit">
                 <IconDownload className="mr-2 h-4 w-4" />
                 Download CV
-              </Button>
+              </Button> */}
 
               <div className="flex gap-4">
                 <Button
