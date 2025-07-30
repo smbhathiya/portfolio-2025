@@ -75,7 +75,7 @@ export function ContactSection() {
                 className="rounded-full px-8 py-4 text-lg bg-green-500 hover:bg-green-600 shadow-md group-hover:shadow-lg transition-all flex items-center gap-2"
               >
                 <a
-                  href="https://wa.me/94768941816"
+                  href="https://wa.me/94723095865"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
