@@ -22,7 +22,7 @@ export function AboutSection() {
     <section className="py-20 md:py-28 relative overflow-hidden" id="about">
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
         <div className="text-[8rem] md:text-[12rem] lg:text-[16rem] xl:text-[20rem] font-bold text-muted-foreground/3 leading-none whitespace-nowrap">
-          YASH
+          BHATHIYA
         </div>
       </div>
       <div className="container px-4 md:px-6 max-w-7xl mx-auto relative z-10">
