@@ -20,27 +20,29 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Bhathiya Lakshan | Full Stack Developer",
-  description: "Portfolio of Bhathiya Lakshan, a Full Stack Developer specializing in modern web technologies. Experience at IMOS, Ishara Madhushan Online School, Digi Pro Solutions.",
+  title: "Bhathiya Lakshan | Full Stack Developer & Software Engineer",
+  description: "Bhathiya Lakshan is a Full Stack Developer and Software Engineer with expertise in React, Next.js, TypeScript, and modern web technologies. Lead Software Engineer at Digi Pro Solutions with experience at IMOS and Nanosoft Global.",
   keywords: [
     "Bhathiya Lakshan",
-    "developer",
-    "portfolio", 
-    "full stack",
-    "web development",
-    "frontend",
-    "backend",
+    "Full Stack Developer",
+    "Software Engineer",
+    "React Developer",
+    "Next.js Developer",
+    "TypeScript Developer",
+    "Web Development",
+    "Portfolio",
     "React",
     "Next.js",
     "TypeScript",
     "JavaScript",
     "Node.js",
-    "IMOS",
-    "Ishara Madhushan Online School",
+    "Tailwind CSS",
+    "AI Image Generator",
+    "Weather App",
+    "Bliss Café",
     "Digi Pro Solutions",
-    "software engineer",
-    "web developer",
-    "Sri Lanka"
+    "IMOS",
+    "Sri Lanka Developer"
   ],
   authors: [{ name: "Bhathiya Lakshan" }],
   creator: "Bhathiya Lakshan",
@@ -55,17 +57,17 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Bhathiya Lakshan | Full Stack Developer",
-    description: "Portfolio of Bhathiya Lakshan, a Full Stack Developer specializing in modern web technologies. View projects, skills, and experience.",
+    title: "Bhathiya Lakshan | Full Stack Developer & Software Engineer",
+    description: "Bhathiya Lakshan is a Full Stack Developer and Software Engineer with expertise in React, Next.js, TypeScript, and modern web technologies.",
     url: "https://bhathiya.dev",
-    siteName: "Bhathiya Lakshan Portfolio",
+    siteName: "Bhathiya Lakshan ",
     images: [
       {
-        url: "/me.jpg",
+        url: "/cover.png",
         width: 1200,
         height: 630,
-        alt: "Bhathiya Lakshan - Full Stack Developer",
-        type: "image/jpeg",
+        alt: "Bhathiya Lakshan - Full Stack Developer and Software Engineer",
+        type: "image/png",
       },
     ],
     locale: "en_US",
@@ -73,11 +75,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bhathiya Lakshan | Full Stack Developer",
-    description: "Portfolio of Bhathiya Lakshan, a Full Stack Developer specializing in modern web technologies.",
+    title: "Bhathiya Lakshan | Full Stack Developer & Software Engineer",
+    description: "Bhathiya Lakshan is a Full Stack Developer and Software Engineer with expertise in React, Next.js, TypeScript, and modern web technologies.",
     site: "@smbhathiya",
     creator: "@smbhathiya",
-    images: ["/me.jpg"],
+    images: ["/cover.png"],
   },
   icons: {
     icon: [
@@ -87,9 +89,6 @@ export const metadata: Metadata = {
     ],
     apple: [
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
-    other: [
-      { rel: "mask-icon", url: "/safari-pinned-tab.svg", color: "#000000" },
     ],
   },
   manifest: "/site.webmanifest",
@@ -113,9 +112,8 @@ export const metadata: Metadata = {
     "apple-mobile-web-app-capable": "yes",
     "apple-mobile-web-app-status-bar-style": "default",
     "apple-mobile-web-app-title": "Bhathiya Lakshan",
-    "application-name": "Bhathiya Lakshan Portfolio",
+    "application-name": "Bhathiya Lakshan",
     "mobile-web-app-capable": "yes",
-    "msapplication-TileImage": "/mstile-144x144.png",
   },
 };
 
@@ -127,65 +125,24 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Favicon and icons */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="theme-color" content="#000000" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Bhathiya Lakshan" />
-        <meta name="application-name" content="Bhathiya Lakshan Portfolio" />
+        <meta name="application-name" content="Bhathiya Lakshan" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msapplication-TileColor" content="#000000" />
-        <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              "name": "Bhathiya Lakshan",
-              "jobTitle": "Full Stack Developer",
-              "description": "Full Stack Developer specializing in modern web technologies",
-              "url": "https://bhathiya.dev",
-              "image": "https://bhathiya.dev/me.jpg",
-              "sameAs": [
-                "https://twitter.com/smbhathiya",
-                "https://github.com/smbhathiya",
-                "https://linkedin.com/in/bhathiya-lakshan"
-              ],
-              "worksFor": [
-                {
-                  "@type": "Organization",
-                  "name": "IMOS"
-                },
-                {
-                  "@type": "Organization", 
-                  "name": "Ishara Madhushan Online School"
-                },
-                {
-                  "@type": "Organization",
-                  "name": "Digi Pro Solutions"
-                }
-              ],
-              "knowsAbout": [
-                "Web Development",
-                "React",
-                "Next.js",
-                "TypeScript",
-                "JavaScript",
-                "Node.js",
-                "Full Stack Development",
-                "Frontend Development",
-                "Backend Development"
-              ],
-              "address": {
-                "@type": "PostalAddress",
-                "addressCountry": "LK"
-              }
-            })
-          }}
-        />
+        
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body
         className={`${inter.variable} ${poppins.variable} ${playfair.variable} antialiased font-sans`}

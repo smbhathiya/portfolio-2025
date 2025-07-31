@@ -44,6 +44,7 @@ export function ProjectsSection() {
                     )} // Use public/projects
                     alt={project.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-40 group-hover:opacity-70 transition-opacity duration-500" />
@@ -136,6 +137,7 @@ export function ProjectsSection() {
                   )}
                   alt={project.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 {/* <div className="absolute top-3 right-3 z-20 flex flex-wrap gap-1.5 justify-end">
@@ -143,7 +145,7 @@ export function ProjectsSection() {
                     <Badge
                       key={i}
                       variant="secondary"
-                      className="bg-background/80 backdrop-blur-sm text-xs border border-primary/20 shadow-sm"
+                      className="bg-background/80 backdrop-blur-sm text-xs border-primary/20 shadow-sm"
                     >
                       {tag}
                     </Badge>
@@ -184,7 +186,7 @@ export function ProjectsSection() {
                         href={project.gitUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="View code on GitHub"
+                        aria-label={`View ${project.title} code on GitHub`}
                       >
                         <IconBrandGithub className="h-4 w-4" />
                       </a>
@@ -201,7 +203,7 @@ export function ProjectsSection() {
                         href={project.previewUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="View live demo"
+                        aria-label={`View ${project.title} live demo`}
                       >
                         <IconExternalLink className="h-4 w-4" />
                       </a>
@@ -218,8 +220,9 @@ export function ProjectsSection() {
                     href={project.gitUrl || project.previewUrl || "#"}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`View ${project.title} project details`}
                   >
-                    Learn More
+                    {project.previewUrl && project.previewUrl !== "#" ? "View Demo" : "View Project"}
                   </a>
                 </Button>
               </CardFooter>

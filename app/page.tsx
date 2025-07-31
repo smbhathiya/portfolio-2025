@@ -1,44 +1,58 @@
 export const metadata = {
-  title: "Home | Bhathiya Lakshan Portfolio",
+  title: "Bhathiya Lakshan",
   description:
-    "Welcome to the portfolio of Bhathiya Lakshan, Full Stack Developer. Explore projects, skills, and experience at IMOS, Ishara Madhushan Online School, Digi Pro Solutions.",
+    "Welcome to Bhathiya Lakshan's portfolio - Full Stack Developer and Software Engineer. Explore innovative projects including AI Image Generator, Weather App, Bliss Café, and more.",
   keywords: [
     "Bhathiya Lakshan",
     "portfolio",
-    "full stack",
+    "full stack developer",
+    "software engineer",
     "web development",
-    "frontend",
-    "backend",
-    "IMOS",
-    "Ishara Madhushan Online School",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "AI Image Generator",
+    "Weather App",
+    "Bliss Café",
     "Digi Pro Solutions",
+    "IMOS",
+    "Sri Lanka developer",
   ],
   openGraph: {
-    title: "Home | Bhathiya Lakshan Portfolio",
+    title:
+      "Bhathiya Lakshan | Full Stack Developer & Software Engineer Portfolio",
     description:
-      "Welcome to the portfolio of Bhathiya Lakshan, Full Stack Developer. Explore projects, skills, and experience at IMOS, Ishara Madhushan Online School, Digi Pro Solutions.",
+      "Welcome to Bhathiya Lakshan's portfolio - Full Stack Developer and Software Engineer. Explore innovative projects including AI Image Generator, Weather App, Bliss Café, and more.",
     url: "https://bhathiya.dev",
+    siteName: "Bhathiya Lakshan",
     images: [
       {
-        url: "/me.jpg",
-        width: 800,
-        height: 600,
-        alt: "Bhathiya Lakshan profile photo",
+        url: "/cover.png",
+        width: 1200,
+        height: 630,
+        alt: "Bhathiya Lakshan - Full Stack Developer and Software Engineer Portfolio",
+        type: "image/jpeg",
       },
     ],
     locale: "en_US",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Home | Bhathiya Lakshan Portfolio",
-    description:
-      "Welcome to the portfolio of Bhathiya Lakshan, Full Stack Developer. Explore projects, skills, and experience at IMOS, Ishara Madhushan Online School, Digi Pro Solutions.",
-    site: "@smbhathiya",
-    creator: "@smbhathiya",
-    images: ["/me.jpg"],
+  alternates: {
+    canonical: "https://bhathiya.dev",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
+
 import { NavBar } from "@/components/nav-bar";
 import { AboutSection } from "@/components/sections/about";
 import { ContactSection } from "@/components/sections/contact";
