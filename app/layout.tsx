@@ -20,56 +20,31 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "Bhathiya Lakshan | Full Stack Developer & Software Engineer",
-    template: "%s | Bhathiya Lakshan"
-  },
-  description: "Bhathiya Lakshan is a Full Stack Developer and Software Engineer with expertise in React, Next.js, TypeScript, and modern web technologies. Lead Software Engineer at Digi Pro Solutions with experience at IMOS and Nanosoft Global. View portfolio projects including AI Image Generator, Weather App, and more.",
+  title: "Bhathiya Lakshan | Full Stack Developer & Software Engineer",
+  description: "Bhathiya Lakshan is a Full Stack Developer and Software Engineer with expertise in React, Next.js, TypeScript, and modern web technologies. Lead Software Engineer at Digi Pro Solutions with experience at IMOS and Nanosoft Global.",
   keywords: [
     "Bhathiya Lakshan",
     "Full Stack Developer",
     "Software Engineer",
-    "Lead Software Engineer",
-    "Web Developer",
     "React Developer",
     "Next.js Developer",
     "TypeScript Developer",
-    "Frontend Developer",
-    "Backend Developer",
-    "Portfolio",
     "Web Development",
-    "Software Development",
+    "Portfolio",
     "React",
     "Next.js",
     "TypeScript",
     "JavaScript",
     "Node.js",
     "Tailwind CSS",
-    "ShadCN UI",
     "AI Image Generator",
     "Weather App",
     "Bliss Café",
-    "Cineplex Cinema",
-    "Debra Event Management",
     "Digi Pro Solutions",
     "IMOS",
-    "Ishara Madhushan Online School",
-    "Nanosoft Global",
-    "Cardiff Metropolitan University",
-    "Sri Lanka Developer",
-    "Modern Web Technologies",
-    "Responsive Web Design",
-    "Progressive Web App",
-    "API Development",
-    "Database Design",
-    "Cloud Computing",
-    "Git",
-    "GitHub",
-    "Firebase",
-    "Cloudinary",
-    "Clerk Authentication"
+    "Sri Lanka Developer"
   ],
-  authors: [{ name: "Bhathiya Lakshan", url: "https://bhathiya.dev" }],
+  authors: [{ name: "Bhathiya Lakshan" }],
   creator: "Bhathiya Lakshan",
   publisher: "Bhathiya Lakshan",
   formatDetection: {
@@ -83,16 +58,16 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Bhathiya Lakshan | Full Stack Developer & Software Engineer",
-    description: "Bhathiya Lakshan is a Full Stack Developer and Software Engineer with expertise in React, Next.js, TypeScript, and modern web technologies. Lead Software Engineer at Digi Pro Solutions with experience at IMOS and Nanosoft Global.",
+    description: "Bhathiya Lakshan is a Full Stack Developer and Software Engineer with expertise in React, Next.js, TypeScript, and modern web technologies.",
     url: "https://bhathiya.dev",
     siteName: "Bhathiya Lakshan Portfolio",
     images: [
       {
-        url: "/me.jpg",
+        url: "/cover.png",
         width: 1200,
         height: 630,
         alt: "Bhathiya Lakshan - Full Stack Developer and Software Engineer",
-        type: "image/jpeg",
+        type: "image/png",
       },
     ],
     locale: "en_US",
@@ -104,7 +79,7 @@ export const metadata: Metadata = {
     description: "Bhathiya Lakshan is a Full Stack Developer and Software Engineer with expertise in React, Next.js, TypeScript, and modern web technologies.",
     site: "@smbhathiya",
     creator: "@smbhathiya",
-    images: ["/me.jpg"],
+    images: ["/cover.png"],
   },
   icons: {
     icon: [
@@ -143,25 +118,6 @@ export const metadata: Metadata = {
     "application-name": "Bhathiya Lakshan Portfolio",
     "mobile-web-app-capable": "yes",
     "msapplication-TileImage": "/mstile-144x144.png",
-    "author": "Bhathiya Lakshan",
-    "category": "Portfolio",
-    "classification": "Personal Website",
-    "coverage": "Worldwide",
-    "distribution": "Global",
-    "rating": "General",
-    "revisit-after": "7 days",
-    "robots": "index, follow",
-    "google-site-verification": "your-google-verification-code",
-    "yandex-verification": "your-yandex-verification-code",
-    "msvalidate.01": "your-bing-verification-code",
-  },
-  verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-    yahoo: "your-yahoo-verification-code",
-    other: {
-      "msvalidate.01": "your-bing-verification-code",
-    },
   },
 };
 
@@ -183,20 +139,13 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
-        <meta name="author" content="Bhathiya Lakshan" />
-        <meta name="category" content="Portfolio" />
-        <meta name="classification" content="Personal Website" />
-        <meta name="coverage" content="Worldwide" />
-        <meta name="distribution" content="Global" />
-        <meta name="rating" content="General" />
-        <meta name="revisit-after" content="7 days" />
-        <meta name="robots" content="index, follow" />
-        <meta name="google-site-verification" content="your-google-verification-code" />
-        <meta name="yandex-verification" content="your-yandex-verification-code" />
-        <meta name="msvalidate.01" content="your-bing-verification-code" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000" />
         
-        {/* Enhanced Structured Data */}
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* Simple Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -208,8 +157,6 @@ export default function RootLayout({
               "description": "Full Stack Developer and Software Engineer specializing in React, Next.js, TypeScript, and modern web technologies",
               "url": "https://bhathiya.dev",
               "image": "https://bhathiya.dev/me.jpg",
-              "email": "contact@bhathiya.dev",
-              "telephone": "+94-XX-XXXXXXX",
               "sameAs": [
                 "https://twitter.com/smbhathiya",
                 "https://github.com/smbhathiya",
@@ -218,31 +165,11 @@ export default function RootLayout({
               "worksFor": [
                 {
                   "@type": "Organization",
-                  "name": "Digi Pro Solutions",
-                  "jobTitle": "Lead Software Engineer, IT Manager",
-                  "startDate": "2025-04"
+                  "name": "Digi Pro Solutions"
                 },
                 {
                   "@type": "Organization", 
-                  "name": "IMOS",
-                  "jobTitle": "Software Engineer, IT Manager",
-                  "startDate": "2025-04"
-                }
-              ],
-              "alumniOf": [
-                {
-                  "@type": "EducationalOrganization",
-                  "name": "Cardiff Metropolitan University",
-                  "degree": "BSc in Software Engineering",
-                  "startDate": "2024",
-                  "endDate": "2025"
-                },
-                {
-                  "@type": "EducationalOrganization",
-                  "name": "Cardiff Metropolitan University",
-                  "degree": "Higher Diploma in Computing and Software Engineering",
-                  "startDate": "2022",
-                  "endDate": "2024"
+                  "name": "IMOS"
                 }
               ],
               "knowsAbout": [
@@ -252,92 +179,12 @@ export default function RootLayout({
                 "TypeScript",
                 "JavaScript",
                 "Node.js",
-                "Full Stack Development",
-                "Frontend Development",
-                "Backend Development",
-                "Tailwind CSS",
-                "ShadCN UI",
-                "API Development",
-                "Database Design",
-                "Cloud Computing",
-                "Git",
-                "Firebase",
-                "Cloudinary",
-                "Clerk Authentication",
-                "AI Integration",
-                "Progressive Web Apps"
+                "Full Stack Development"
               ],
-              "hasOccupation": {
-                "@type": "Occupation",
-                "name": "Software Engineer",
-                "occupationLocation": {
-                  "@type": "Country",
-                  "name": "Sri Lanka"
-                }
-              },
               "address": {
                 "@type": "PostalAddress",
-                "addressCountry": "LK",
-                "addressRegion": "Sri Lanka"
-              },
-              "nationality": "Sri Lankan",
-              "birthPlace": {
-                "@type": "Place",
-                "name": "Sri Lanka"
+                "addressCountry": "LK"
               }
-            })
-          }}
-        />
-        
-        {/* Website Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": "Bhathiya Lakshan Portfolio",
-              "url": "https://bhathiya.dev",
-              "description": "Portfolio website of Bhathiya Lakshan, Full Stack Developer and Software Engineer",
-              "author": {
-                "@type": "Person",
-                "name": "Bhathiya Lakshan"
-              },
-              "publisher": {
-                "@type": "Person",
-                "name": "Bhathiya Lakshan"
-              },
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://bhathiya.dev/search?q={search_term_string}",
-                "query-input": "required name=search_term_string"
-              }
-            })
-          }}
-        />
-        
-        {/* Portfolio Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "CreativeWork",
-              "name": "Bhathiya Lakshan Portfolio",
-              "description": "Portfolio showcasing web development projects and skills",
-              "author": {
-                "@type": "Person",
-                "name": "Bhathiya Lakshan"
-              },
-              "creator": {
-                "@type": "Person",
-                "name": "Bhathiya Lakshan"
-              },
-              "dateCreated": "2024",
-              "dateModified": new Date().toISOString().split('T')[0],
-              "genre": "Portfolio",
-              "keywords": "web development, React, Next.js, TypeScript, portfolio",
-              "url": "https://bhathiya.dev"
             })
           }}
         />
