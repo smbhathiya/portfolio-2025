@@ -34,7 +34,7 @@ const projectsData = [
     description:
       "My portfolio website showcases various projects and skills. Built with React and Vite for a modern and efficient development experience, it uses Tailwind CSS for styling. The site is deployed using Firebase, ensuring reliable and scalable hosting",
     images: ["/source/projects/1.webp"],
-    gitUrl: "https://github.com/smbhathiya/portfolio-website-v1.git",
+    gitUrl: "https://github.com/smbhathiya/portfolio-v1.git",
     previewUrl: "https://my-web-32130.web.app/",
   },
 
@@ -55,7 +55,7 @@ const projectsData = [
       "Cineplex Cinema is a campus project developed using PHP and MySQL. It's a fully functional web application for a movie theater ticket booking system. The platform allows users to browse movies, view showtimes, book tickets, and manage their bookings with ease. The design includes a modern, dark-themed UI with carousel displays, now-showing listings, and user account management.",
     images: ["/source/projects/cineplex-1.webp"],
     tag: ["All", "Web"],
-    gitUrl: "https://github.com/smbhathiya/CineplexCinemaWeb.git",
+    gitUrl: "https://github.com/smbhathiya/cineplex-cinema-web.git",
     previewUrl: "#",
   },
 ];

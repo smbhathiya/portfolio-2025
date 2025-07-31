@@ -144,11 +144,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
-        {/* Structured Data - Using a more stable approach */}
+        {/* Structured Data - Static approach to prevent hydration issues */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
+            __html: `{
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Bhathiya Lakshan",
@@ -156,11 +156,11 @@ export default function RootLayout({
               "description": "Full Stack Developer and Software Engineer specializing in React, Next.js, TypeScript, and modern web technologies",
               "url": "https://bhathiya.dev",
               "image": "https://bhathiya.dev/me.jpg",
-              "sameAs": [
-                "https://twitter.com/smbhathiya",
-                "https://github.com/smbhathiya",
-                "https://linkedin.com/in/bhathiya-lakshan"
-              ],
+              // "sameAs": [
+              //   "https://twitter.com/smbhathiya",
+              //   "https://github.com/smbhathiya",
+              //   "https://linkedin.com/in/bhathiya-lakshan"
+              // ],
               "worksFor": [
                 {
                   "@type": "Organization",
@@ -184,7 +184,7 @@ export default function RootLayout({
                 "@type": "PostalAddress",
                 "addressCountry": "LK"
               }
-            })
+            }`
           }}
         />
       </head>

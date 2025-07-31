@@ -145,7 +145,7 @@ export function ProjectsSection() {
                     <Badge
                       key={i}
                       variant="secondary"
-                      className="bg-background/80 backdrop-blur-sm text-xs border border-primary/20 shadow-sm"
+                      className="bg-background/80 backdrop-blur-sm text-xs border-primary/20 shadow-sm"
                     >
                       {tag}
                     </Badge>
@@ -186,7 +186,7 @@ export function ProjectsSection() {
                         href={project.gitUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="View code on GitHub"
+                        aria-label={`View ${project.title} code on GitHub`}
                       >
                         <IconBrandGithub className="h-4 w-4" />
                       </a>
@@ -203,7 +203,7 @@ export function ProjectsSection() {
                         href={project.previewUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="View live demo"
+                        aria-label={`View ${project.title} live demo`}
                       >
                         <IconExternalLink className="h-4 w-4" />
                       </a>
@@ -220,8 +220,9 @@ export function ProjectsSection() {
                     href={project.gitUrl || project.previewUrl || "#"}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`View ${project.title} project details`}
                   >
-                    Learn More
+                    {project.previewUrl && project.previewUrl !== "#" ? "View Demo" : "View Project"}
                   </a>
                 </Button>
               </CardFooter>

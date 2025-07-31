@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://bhathiya.dev
-
-# Sitemaps
-Sitemap: https://bhathiya.dev/sitemap.xml
