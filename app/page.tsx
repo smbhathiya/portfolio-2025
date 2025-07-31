@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Home | Bhathiya Lakshan Portfolio",
+  title: "Home | Bhathiya Lakshan",
   description:
     "Welcome to Bhathiya Lakshan's portfolio - Full Stack Developer and Software Engineer. Explore innovative projects including AI Image Generator, Weather App, Bliss Café, and more.",
   keywords: [
@@ -16,14 +16,15 @@ export const metadata = {
     "Bliss Café",
     "Digi Pro Solutions",
     "IMOS",
-    "Sri Lanka developer"
+    "Sri Lanka developer",
   ],
   openGraph: {
-    title: "Bhathiya Lakshan | Full Stack Developer & Software Engineer Portfolio",
+    title:
+      "Bhathiya Lakshan | Full Stack Developer & Software Engineer Portfolio",
     description:
       "Welcome to Bhathiya Lakshan's portfolio - Full Stack Developer and Software Engineer. Explore innovative projects including AI Image Generator, Weather App, Bliss Café, and more.",
     url: "https://bhathiya.dev",
-    siteName: "Bhathiya Lakshan Portfolio",
+    siteName: "Bhathiya Lakshan",
     images: [
       {
         url: "/cover.png",

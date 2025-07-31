@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: "Bhathiya Lakshan | Full Stack Developer & Software Engineer",
     description: "Bhathiya Lakshan is a Full Stack Developer and Software Engineer with expertise in React, Next.js, TypeScript, and modern web technologies.",
     url: "https://bhathiya.dev",
-    siteName: "Bhathiya Lakshan Portfolio",
+    siteName: "Bhathiya Lakshan ",
     images: [
       {
         url: "/cover.png",
@@ -90,9 +90,6 @@ export const metadata: Metadata = {
     apple: [
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
-    other: [
-      { rel: "mask-icon", url: "/safari-pinned-tab.svg", color: "#000000" },
-    ],
   },
   manifest: "/site.webmanifest",
   robots: {
@@ -115,11 +112,60 @@ export const metadata: Metadata = {
     "apple-mobile-web-app-capable": "yes",
     "apple-mobile-web-app-status-bar-style": "default",
     "apple-mobile-web-app-title": "Bhathiya Lakshan",
-    "application-name": "Bhathiya Lakshan Portfolio",
+    "application-name": "Bhathiya Lakshan",
     "mobile-web-app-capable": "yes",
-    "msapplication-TileImage": "/mstile-144x144.png",
   },
 };
+
+// Structured Data Component to prevent hydration issues
+function StructuredData() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Bhathiya Lakshan",
+    "jobTitle": "Full Stack Developer & Software Engineer",
+    "description": "Full Stack Developer and Software Engineer specializing in React, Next.js, TypeScript, and modern web technologies",
+    "url": "https://bhathiya.dev",
+    "image": "https://bhathiya.dev/me.jpg",
+    "sameAs": [
+      "https://twitter.com/smbhathiya",
+      "https://github.com/smbhathiya",
+      "https://linkedin.com/in/bhathiya-lakshan"
+    ],
+    "worksFor": [
+      {
+        "@type": "Organization",
+        "name": "Digi Pro Solutions"
+      },
+      {
+        "@type": "Organization", 
+        "name": "IMOS"
+      }
+    ],
+    "knowsAbout": [
+      "Web Development",
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Node.js",
+      "Full Stack Development"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "LK"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(structuredData)
+      }}
+    />
+  );
+}
 
 export default function RootLayout({
   children,
@@ -134,60 +180,17 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Bhathiya Lakshan" />
-        <meta name="application-name" content="Bhathiya Lakshan Portfolio" />
+        <meta name="application-name" content="Bhathiya Lakshan" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msapplication-TileColor" content="#000000" />
-        <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000" />
         
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
-        {/* Simple Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              "name": "Bhathiya Lakshan",
-              "jobTitle": "Full Stack Developer & Software Engineer",
-              "description": "Full Stack Developer and Software Engineer specializing in React, Next.js, TypeScript, and modern web technologies",
-              "url": "https://bhathiya.dev",
-              "image": "https://bhathiya.dev/me.jpg",
-              "sameAs": [
-                "https://twitter.com/smbhathiya",
-                "https://github.com/smbhathiya",
-                "https://linkedin.com/in/bhathiya-lakshan"
-              ],
-              "worksFor": [
-                {
-                  "@type": "Organization",
-                  "name": "Digi Pro Solutions"
-                },
-                {
-                  "@type": "Organization", 
-                  "name": "IMOS"
-                }
-              ],
-              "knowsAbout": [
-                "Web Development",
-                "React",
-                "Next.js",
-                "TypeScript",
-                "JavaScript",
-                "Node.js",
-                "Full Stack Development"
-              ],
-              "address": {
-                "@type": "PostalAddress",
-                "addressCountry": "LK"
-              }
-            })
-          }}
-        />
+        {/* Structured Data */}
+        <StructuredData />
       </head>
       <body
         className={`${inter.variable} ${poppins.variable} ${playfair.variable} antialiased font-sans`}
