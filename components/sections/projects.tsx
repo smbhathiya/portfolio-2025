@@ -44,6 +44,7 @@ export function ProjectsSection() {
                     )} // Use public/projects
                     alt={project.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-40 group-hover:opacity-70 transition-opacity duration-500" />
@@ -136,6 +137,7 @@ export function ProjectsSection() {
                   )}
                   alt={project.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 {/* <div className="absolute top-3 right-3 z-20 flex flex-wrap gap-1.5 justify-end">

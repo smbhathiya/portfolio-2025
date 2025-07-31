@@ -117,56 +117,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Structured Data Component to prevent hydration issues
-function StructuredData() {
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Bhathiya Lakshan",
-    "jobTitle": "Full Stack Developer & Software Engineer",
-    "description": "Full Stack Developer and Software Engineer specializing in React, Next.js, TypeScript, and modern web technologies",
-    "url": "https://bhathiya.dev",
-    "image": "https://bhathiya.dev/me.jpg",
-    "sameAs": [
-      "https://twitter.com/smbhathiya",
-      "https://github.com/smbhathiya",
-      "https://linkedin.com/in/bhathiya-lakshan"
-    ],
-    "worksFor": [
-      {
-        "@type": "Organization",
-        "name": "Digi Pro Solutions"
-      },
-      {
-        "@type": "Organization", 
-        "name": "IMOS"
-      }
-    ],
-    "knowsAbout": [
-      "Web Development",
-      "React",
-      "Next.js",
-      "TypeScript",
-      "JavaScript",
-      "Node.js",
-      "Full Stack Development"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "LK"
-    }
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify(structuredData)
-      }}
-    />
-  );
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -189,8 +139,49 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
-        {/* Structured Data */}
-        <StructuredData />
+        {/* Structured Data - Using a more stable approach */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Bhathiya Lakshan",
+              "jobTitle": "Full Stack Developer & Software Engineer",
+              "description": "Full Stack Developer and Software Engineer specializing in React, Next.js, TypeScript, and modern web technologies",
+              "url": "https://bhathiya.dev",
+              "image": "https://bhathiya.dev/me.jpg",
+              "sameAs": [
+                "https://twitter.com/smbhathiya",
+                "https://github.com/smbhathiya",
+                "https://linkedin.com/in/bhathiya-lakshan"
+              ],
+              "worksFor": [
+                {
+                  "@type": "Organization",
+                  "name": "Digi Pro Solutions"
+                },
+                {
+                  "@type": "Organization", 
+                  "name": "IMOS"
+                }
+              ],
+              "knowsAbout": [
+                "Web Development",
+                "React",
+                "Next.js",
+                "TypeScript",
+                "JavaScript",
+                "Node.js",
+                "Full Stack Development"
+              ],
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "LK"
+              }
+            })
+          }}
+        />
       </head>
       <body
         className={`${inter.variable} ${poppins.variable} ${playfair.variable} antialiased font-sans`}

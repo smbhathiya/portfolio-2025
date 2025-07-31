@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Home | Bhathiya Lakshan",
+  title: "Bhathiya Lakshan",
   description:
     "Welcome to Bhathiya Lakshan's portfolio - Full Stack Developer and Software Engineer. Explore innovative projects including AI Image Generator, Weather App, Bliss Café, and more.",
   keywords: [
