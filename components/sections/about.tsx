@@ -42,7 +42,7 @@ export function AboutSection() {
         </div>
         <div className="mx-auto mt-16 grid justify-center gap-6 md:max-w-[64rem]">
           <div className="relative">
-            <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary/50 via-primary/30 to-primary/10 rounded-full" />
+            <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary/50 via-primary/30 to-primary/10 rounded-full" />
             {/* Work Experience Section */}
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-3 bg-background/80 backdrop-blur-sm border border-primary/20 px-8 py-4 rounded-full shadow-lg">
@@ -52,8 +52,8 @@ export function AboutSection() {
             </div>
             {workExperience.map((exp, idx) => (
               <div className="relative mb-20" key={exp.title + exp.company}>
-                <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 -top-4 w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg border-4 border-background">
-                  <IconCircle className="h-4 w-4 text-white fill-current" />
+                <div className="absolute left-0 top-0 md:left-1/2 md:top-[-16px] transform md:-translate-x-1/2 w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg border-4 border-background dark:border-background">
+                  <IconCircle className="h-4 w-4 text-primary-foreground fill-current" />
                 </div>
                 <div className="ml-16 md:ml-0 md:grid md:grid-cols-2 md:gap-12">
                   {/* Desktop badge left/right */}
@@ -77,18 +77,32 @@ export function AboutSection() {
                       style={{ zIndex: 0 }}
                     />
                     <CardHeader className="pb-4">
-                      <div className="flex justify-between items-start mb-2">
-                        <CardTitle className="text-2xl font-bold">
-                          {exp.title}
-                        </CardTitle>
+                      {/* Mobile: Time period first, then title */}
+                      <div className="md:hidden mb-2">
                         {exp.badgeMobile && (
                           <Badge
                             variant="outline"
-                            className="font-normal text-sm px-3 py-1 md:hidden bg-primary/10 border-primary/30"
+                            className="font-normal text-sm px-3 py-1 bg-primary/10 border-primary/30"
                           >
                             {exp.badge}
                           </Badge>
                         )}
+                      </div>
+                      <div className="flex justify-between items-start mb-2">
+                        <CardTitle className="text-2xl font-bold">
+                          {exp.title}
+                        </CardTitle>
+                        {/* Desktop: Keep badge on the right */}
+                        <div className="hidden md:block">
+                          {exp.badgeMobile && (
+                            <Badge
+                              variant="outline"
+                              className="font-normal text-sm px-3 py-1 bg-primary/10 border-primary/30"
+                            >
+                              {exp.badge}
+                            </Badge>
+                          )}
+                        </div>
                       </div>
                       <CardDescription className="flex items-center gap-2 text-base font-medium">
                         <IconBuildingSkyscraper className="h-5 w-5 text-primary" />
@@ -129,8 +143,8 @@ export function AboutSection() {
                 }`}
                 key={edu.title}
               >
-                <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 -top-4 w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg border-4 border-background">
-                  <IconCircle className="h-4 w-4 text-white fill-current" />
+                <div className="absolute left-0 top-0 md:left-1/2 md:top-[-16px] transform md:-translate-x-1/2 w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg border-4 border-background dark:border-background">
+                  <IconCircle className="h-4 w-4 text-primary-foreground fill-current" />
                 </div>
                 <div className="ml-16 md:ml-0 md:grid md:grid-cols-2 md:gap-12">
                   {/* Desktop badge left/right */}
@@ -154,16 +168,28 @@ export function AboutSection() {
                       style={{ zIndex: 0 }}
                     />
                     <CardHeader className="pb-4">
+                      {/* Mobile: Time period first, then title */}
+                      <div className="md:hidden mb-2">
+                        <Badge
+                          variant="outline"
+                          className="font-normal text-sm px-3 py-1 bg-primary/10 border-primary/30"
+                        >
+                          {edu.badge}
+                        </Badge>
+                      </div>
                       <div className="flex justify-between items-start mb-2">
                         <CardTitle className="text-2xl font-bold">
                           {edu.title}
                         </CardTitle>
-                        <Badge
-                          variant="outline"
-                          className="font-normal text-sm px-3 py-1 md:hidden bg-primary/10 border-primary/30"
-                        >
-                          {edu.badge}
-                        </Badge>
+                        {/* Desktop: Keep badge on the right */}
+                        <div className="hidden md:block">
+                          <Badge
+                            variant="outline"
+                            className="font-normal text-sm px-3 py-1 bg-primary/10 border-primary/30"
+                          >
+                            {edu.badge}
+                          </Badge>
+                        </div>
                       </div>
                       <CardDescription className="flex items-center gap-2 text-base font-medium">
                         <IconSchool className="h-5 w-5 text-primary" />

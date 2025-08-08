@@ -80,14 +80,16 @@ export function SkillsSection() {
     { name: "RESTful API", icon: <IconBraces className="h-8 w-8" /> },
   ];
 
-  // Create two rows of skills for the marquee effect moving in opposite directions
+  // Create three rows of skills for the marquee effect moving in opposite directions
   const rowOneSkills = [
     ...frontendSkills,
-    ...backendSkills,
     ...frontendSkills,
-    ...backendSkills,
   ];
   const rowTwoSkills = [
+    ...backendSkills,
+    ...backendSkills,
+  ];
+  const rowThreeSkills = [
     ...devopsTools,
     ...otherSkills,
     ...devopsTools,
@@ -120,60 +122,138 @@ export function SkillsSection() {
           </div>
         </div>
 
-        {/* Skills marquee section */}
+        {/* Skills section with responsive layout */}
         <div className="mt-16 space-y-8">
-          {/* Top row - Skills infinite scroll marquee effect */}
-          <div
-            ref={containerRef}
-            className="relative w-full overflow-hidden group"
-          >
-            {/* Gradient fade effects */}
-            <div className="absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-background to-transparent" />
-            <div className="absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-background to-transparent" />
+          {/* Mobile: Animated marquee layout */}
+          <div className="md:hidden space-y-4">
+            {/* First row - Frontend */}
+            <div className="relative w-full overflow-hidden group">
+              {/* Gradient fade effects */}
+              <div className="absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-background to-transparent" />
+              <div className="absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-background to-transparent" />
 
-            {/* Pause on hover functionality with smoother animation */}
-            <div className="flex items-center gap-6 py-4 animate-marquee-infinite group-hover:pause">
-              {rowOneSkills.map((skill, index) => (
-                <div
-                  key={`row1-${index}`}
-                  className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-background/80 shadow-lg backdrop-blur-sm border border-border/50 
-                    whitespace-nowrap hover:border-primary/50 hover:bg-primary/5 hover:shadow-xl transition-all duration-300 hover:scale-105"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <span className="text-primary/90 group-hover:text-primary transition-colors">
-                    {React.cloneElement(skill.icon, { className: "h-8 w-8" })}
-                  </span>
-                  <span className="text-lg font-medium group-hover:text-primary/90 transition-colors">
-                    {skill.name}
-                  </span>
-                </div>
-              ))}
+              <div className="flex items-center gap-3 py-2.5 animate-marquee-mobile group-hover:pause">
+                {rowOneSkills.map((skill, index) => (
+                  <div
+                    key={`mobile-row1-${index}`}
+                    className="flex flex-col items-center gap-1 p-2.5 rounded-lg bg-background/80 shadow-sm backdrop-blur-sm border border-border/50 
+                      hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 min-w-[60px] flex-shrink-0"
+                  >
+                    <span className="text-primary/90">
+                      {React.cloneElement(skill.icon, { className: "h-4 w-4" })}
+                    </span>
+                    <span className="text-xs font-medium text-center leading-tight">
+                      {skill.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Second row - Backend (opposite direction) */}
+            <div className="relative w-full overflow-hidden group">
+              {/* Gradient fade effects */}
+              <div className="absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-background to-transparent" />
+              <div className="absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-background to-transparent" />
+
+              <div className="flex items-center gap-3 py-2.5 animate-marquee-mobile-reverse group-hover:pause">
+                {rowTwoSkills.map((skill, index) => (
+                  <div
+                    key={`mobile-row2-${index}`}
+                    className="flex flex-col items-center gap-1 p-2.5 rounded-lg bg-background/80 shadow-sm backdrop-blur-sm border border-border/50 
+                      hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 min-w-[60px] flex-shrink-0"
+                  >
+                    <span className="text-primary/90">
+                      {React.cloneElement(skill.icon, { className: "h-4 w-4" })}
+                    </span>
+                    <span className="text-xs font-medium text-center leading-tight">
+                      {skill.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Third row - Tools & DevOps */}
+            <div className="relative w-full overflow-hidden group">
+              {/* Gradient fade effects */}
+              <div className="absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-background to-transparent" />
+              <div className="absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-background to-transparent" />
+
+              <div className="flex items-center gap-3 py-2.5 animate-marquee-mobile group-hover:pause">
+                {rowThreeSkills.map((skill, index) => (
+                  <div
+                    key={`mobile-row3-${index}`}
+                    className="flex flex-col items-center gap-1 p-2.5 rounded-lg bg-background/80 shadow-sm backdrop-blur-sm border border-border/50 
+                      hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 min-w-[60px] flex-shrink-0"
+                  >
+                    <span className="text-primary/90">
+                      {React.cloneElement(skill.icon, { className: "h-4 w-4" })}
+                    </span>
+                    <span className="text-xs font-medium text-center leading-tight">
+                      {skill.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Bottom row - Opposite direction */}
-          <div className="relative w-full overflow-hidden group">
-            {/* Gradient fade effects */}
-            <div className="absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-background to-transparent" />
-            <div className="absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-background to-transparent" />
+          {/* Desktop: Marquee layout */}
+          <div className="hidden md:block">
+            {/* Top row - Skills infinite scroll marquee effect */}
+            <div
+              ref={containerRef}
+              className="relative w-full overflow-hidden group mb-8"
+            >
+              {/* Gradient fade effects */}
+              <div className="absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-background to-transparent" />
+              <div className="absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-background to-transparent" />
 
-            {/* Second row moving in opposite direction */}
-            <div className="flex items-center gap-6 py-4 animate-marquee-infinite-reverse group-hover:pause">
-              {rowTwoSkills.map((skill, index) => (
-                <div
-                  key={`row2-${index}`}
-                  className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-background/80 shadow-lg backdrop-blur-sm border border-border/50 
-                    whitespace-nowrap hover:border-primary/50 hover:bg-primary/5 hover:shadow-xl transition-all duration-300 hover:scale-105"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <span className="text-primary/90 group-hover:text-primary transition-colors">
-                    {React.cloneElement(skill.icon, { className: "h-8 w-8" })}
-                  </span>
-                  <span className="text-lg font-medium group-hover:text-primary/90 transition-colors">
-                    {skill.name}
-                  </span>
-                </div>
-              ))}
+              {/* Pause on hover functionality with smoother animation */}
+              <div className="flex items-center gap-6 py-4 animate-marquee-infinite group-hover:pause">
+                {rowOneSkills.map((skill, index) => (
+                  <div
+                    key={`row1-${index}`}
+                    className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-background/80 shadow-lg backdrop-blur-sm border border-border/50 
+                      whitespace-nowrap hover:border-primary/50 hover:bg-primary/5 hover:shadow-xl transition-all duration-300 hover:scale-105"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <span className="text-primary/90 group-hover:text-primary transition-colors">
+                      {React.cloneElement(skill.icon, { className: "h-8 w-8" })}
+                    </span>
+                    <span className="text-lg font-medium group-hover:text-primary/90 transition-colors">
+                      {skill.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Bottom row - Opposite direction */}
+            <div className="relative w-full overflow-hidden group">
+              {/* Gradient fade effects */}
+              <div className="absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-background to-transparent" />
+              <div className="absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-background to-transparent" />
+
+              {/* Second row moving in opposite direction */}
+              <div className="flex items-center gap-6 py-4 animate-marquee-infinite-reverse group-hover:pause">
+                {rowTwoSkills.map((skill, index) => (
+                  <div
+                    key={`row2-${index}`}
+                    className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-background/80 shadow-lg backdrop-blur-sm border border-border/50 
+                      whitespace-nowrap hover:border-primary/50 hover:bg-primary/5 hover:shadow-xl transition-all duration-300 hover:scale-105"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <span className="text-primary/90 group-hover:text-primary transition-colors">
+                      {React.cloneElement(skill.icon, { className: "h-8 w-8" })}
+                    </span>
+                    <span className="text-lg font-medium group-hover:text-primary/90 transition-colors">
+                      {skill.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

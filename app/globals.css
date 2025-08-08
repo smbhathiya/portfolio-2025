@@ -123,3 +123,61 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom scrollbar styles */
+@layer utilities {
+  .scrollbar-hide {
+    /* IE and Edge */
+    -ms-overflow-style: none;
+    
+    /* Firefox */
+    scrollbar-width: none;
+    
+    /* Safari and Chrome */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+/* Mobile marquee animations */
+@layer components {
+  .animate-marquee-infinite {
+    animation: marquee-infinite 30s linear infinite;
+  }
+  
+  .animate-marquee-infinite-reverse {
+    animation: marquee-infinite-reverse 35s linear infinite;
+  }
+  
+  /* Faster mobile animations */
+  .animate-marquee-mobile {
+    animation: marquee-infinite 15s linear infinite;
+  }
+  
+  .animate-marquee-mobile-reverse {
+    animation: marquee-infinite-reverse 18s linear infinite;
+  }
+  
+  .group:hover .group-hover\:pause {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-infinite-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
