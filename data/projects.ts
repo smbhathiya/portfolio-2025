@@ -10,6 +10,27 @@ const projectsData = [
     previewUrl: "https://blisscafe.bhathiya.dev",
   },
   {
+    id: 8,
+    title: "Business Landing Page – Open Source Template",
+    description:
+      "A clean, modern, and fully responsive single-page website template designed for businesses. Built using Next.js and Tailwind CSS, this open-source project is perfect for anyone who needs a simple, elegant landing page to showcase their products or services. Licensed under MIT, it’s freely available for customization and public use.",
+    images: ["/source/projects/landingpage.png"],
+    tag: ["All", "Web"],
+    gitUrl: "https://github.com/smbhathiya/landing-page-2025.git",
+    previewUrl: "https://landing2025.bhathiya.dev",
+  },
+  {
+    id: 9,
+    title: "TravelNxt – AI-Powered Travel Recommender",
+    description:
+      "TravelNxt is an intelligent travel location recommender system that helps users discover the best destinations based on their interests, mood, and preferences. Built with Next.js, TypeScript, Tailwind CSS, and integrated with advanced AI models for sentiment and interest-based predictions, it offers personalized travel suggestions, location insights, and top-rated place recommendations. Designed for a smooth, modern, and responsive user experience.",
+    images: ["/source/projects/travelnxt.png"],
+    tag: ["All", "AI", "Web"],
+    gitUrl: "https://github.com/smbhathiya/travel-nxt.git",
+    previewUrl: "#",
+  },
+
+  {
     id: 6,
     title: "Today Weather",
     description:
@@ -28,15 +49,6 @@ const projectsData = [
     gitUrl: "https://github.com/smbhathiya/ai-image-generator.git",
     previewUrl: "https://aiig.bhathiya.dev",
   },
-  {
-    id: 2,
-    title: "Portfolio Website v1",
-    description:
-      "My portfolio website showcases various projects and skills. Built with React and Vite for a modern and efficient development experience, it uses Tailwind CSS for styling. The site is deployed using Firebase, ensuring reliable and scalable hosting",
-    images: ["/source/projects/1.webp"],
-    gitUrl: "https://github.com/smbhathiya/portfolio-v1.git",
-    previewUrl: "https://my-web-32130.web.app/",
-  },
 
   {
     id: 1,
@@ -48,16 +60,16 @@ const projectsData = [
     gitUrl: "https://github.com/smbhathiya/DebraEventmanagement.git",
     previewUrl: "#",
   },
-  {
-    id: 4,
-    title: "Cineplex Cinema Ticket Booking System",
-    description:
-      "Cineplex Cinema is a campus project developed using PHP and MySQL. It's a fully functional web application for a movie theater ticket booking system. The platform allows users to browse movies, view showtimes, book tickets, and manage their bookings with ease. The design includes a modern, dark-themed UI with carousel displays, now-showing listings, and user account management.",
-    images: ["/source/projects/cineplex-1.webp"],
-    tag: ["All", "Web"],
-    gitUrl: "https://github.com/smbhathiya/cineplex-cinema-web.git",
-    previewUrl: "#",
-  },
+  // {
+  //   id: 4,
+  //   title: "Cineplex Cinema Ticket Booking System",
+  //   description:
+  //     "Cineplex Cinema is a campus project developed using PHP and MySQL. It's a fully functional web application for a movie theater ticket booking system. The platform allows users to browse movies, view showtimes, book tickets, and manage their bookings with ease. The design includes a modern, dark-themed UI with carousel displays, now-showing listings, and user account management.",
+  //   images: ["/source/projects/cineplex-1.webp"],
+  //   tag: ["All", "Web"],
+  //   gitUrl: "https://github.com/smbhathiya/cineplex-cinema-web.git",
+  //   previewUrl: "#",
+  // },
 ];
 
 export default projectsData;

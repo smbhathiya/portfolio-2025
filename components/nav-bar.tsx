@@ -157,46 +157,61 @@ export function NavBar() {
         </div>
       </div>
 
-      {/* Mobile nav with modern sliding animation */}
+      {/* Mobile nav with full screen overlay */}
       <div
         className={cn(
-          "fixed inset-x-0 top-[80px] z-40 md:hidden transition-all duration-300 ease-out",
+          "fixed inset-0 z-40 md:hidden transition-all duration-300 ease-out",
           isMobileMenuOpen
             ? "opacity-100 transform translate-y-0"
             : "opacity-0 transform -translate-y-4 pointer-events-none"
         )}
       >
-        <div className="mx-4 mt-2 bg-background/95 backdrop-blur-xl rounded-2xl border border-border/50 shadow-2xl overflow-hidden">
-          <div className="px-6 py-6 space-y-2">
-            {navItems.map((item, index) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
-                className={cn(
-                  "block px-4 py-3 text-sm font-medium transition-all duration-200 rounded-xl hover:scale-[1.02] active:scale-[0.98]",
-                  activeSection === item.href
-                    ? "bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-lg"
-                    : "text-muted-foreground hover:text-foreground hover:bg-primary/5"
-                )}
-                style={{
-                  animationDelay: `${index * 50}ms`,
-                }}
-              >
-                <span>{item.label}</span>
-              </a>
-            ))}
+        {/* Full screen background with blur */}
+        <div
+          className="absolute inset-0 bg-background/95 backdrop-blur-xl"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+
+        {/* Menu content */}
+        <div className="relative z-10 flex flex-col h-full">
+          {/* Spacer for navbar */}
+          <div style={{ height: NAVBAR_HEIGHT }} />
+
+          {/* Navigation items - top left positioned */}
+          <div className="px-8 pt-8 flex-1">
+            <div className="space-y-4 w-full">
+              {navItems.map((item, index) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className={cn(
+                    "block px-6 py-4 text-xl font-medium transition-all duration-200 rounded-xl hover:scale-[1.02] active:scale-[0.98] text-left",
+                    activeSection === item.href
+                      ? "bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-lg"
+                      : "text-foreground hover:text-primary hover:bg-primary/5"
+                  )}
+                  style={{
+                    animationDelay: `${index * 100}ms`,
+                  }}
+                >
+                  <span>{item.label}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Mode toggle for mobile - bottom left */}
+          <div className="px-8 pb-8">
+            <div className="inline-flex items-center justify-center w-14 h-14 rounded-full border-2 border-border/30 bg-background/50 hover:bg-primary/10 hover:border-primary/30 transition-all duration-200">
+              <ModeToggle
+                className="bg-transparent hover:bg-transparent"
+                iconSize="h-6 w-6"
+              />
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Mobile backdrop */}
-      {isMobileMenuOpen && (
-        <div
-          className="fixed inset-0 z-30 bg-black/20 backdrop-blur-sm md:hidden animate-in fade-in-0 duration-300"
-          onClick={() => setIsMobileMenuOpen(false)}
-        />
-      )}
 
       {/* Spacer */}
       <div style={{ height: NAVBAR_HEIGHT }} />
