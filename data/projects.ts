@@ -1,17 +1,16 @@
 const projectsData = [
   {
     id: 5,
-    title: "Bliss Café – Coffee Shop ",
+    title: "Bliss Café - Coffee Shop ",
     description:
       "Bliss Café is a modern and responsive coffee shop website built using Next.js, Tailwind CSS, and ShadCN UI. This project showcases a sleek landing page with a floating navbar, hero section, and a clean UI that aligns with system themes. The site is designed to attract customers and provide information about the café, its menu, and location.",
     images: ["/source/projects/blisscafe.png"],
     tag: ["All", "Web"],
-    gitUrl: "https://github.com/smbhathiya/bliss-cafe.git",
     previewUrl: "https://blisscafe.bhathiya.dev",
   },
   {
     id: 8,
-    title: "Business Landing Page – Open Source Template",
+    title: "Business Landing Page - Open Source Template",
     description:
       "A clean, modern, and fully responsive single-page website template designed for businesses. Built using Next.js and Tailwind CSS, this open-source project is perfect for anyone who needs a simple, elegant landing page to showcase their products or services. Licensed under MIT, it’s freely available for customization and public use.",
     images: ["/source/projects/landingpage.png"],
@@ -21,13 +20,12 @@ const projectsData = [
   },
   {
     id: 9,
-    title: "TravelNxt – AI-Powered Travel Recommender",
+    title: "VantageCar - Car Dealership",
     description:
-      "TravelNxt is an intelligent travel location recommender system that helps users discover the best destinations based on their interests, mood, and preferences. Built with Next.js, TypeScript, Tailwind CSS, and integrated with advanced AI models for sentiment and interest-based predictions, it offers personalized travel suggestions, location insights, and top-rated place recommendations. Designed for a smooth, modern, and responsive user experience.",
-    images: ["/source/projects/travelnxt.png"],
-    tag: ["All", "AI", "Web"],
-    gitUrl: "https://github.com/smbhathiya/travel-nxt.git",
-    previewUrl: "#",
+      "VantageCar is a modern car dealership website showcasing vehicles, listings, and contact information. Built with Next.js, TypeScript, and Tailwind CSS for a responsive, user-friendly browsing experience.",
+    images: ["/source/projects/vantagecar.png"],
+    tag: ["All", "Web"],
+    previewUrl: "https://vantagecar.bhathiya.dev",
   },
 
   {
@@ -50,16 +48,6 @@ const projectsData = [
     previewUrl: "https://aiig.bhathiya.dev",
   },
 
-  {
-    id: 1,
-    title: "Debra Event Management System",
-    description:
-      "Debra is a service-oriented project developed using ASP.NET. It encompasses both a website and a Windows desktop application. The project aims to provide seamless integration between these platforms to deliver efficient service solutions.",
-    images: ["/source/projects/2.webp", "/source/projects/2b.webp"],
-    tag: ["All", "Web"],
-    gitUrl: "https://github.com/smbhathiya/DebraEventmanagement.git",
-    previewUrl: "#",
-  },
   // {
   //   id: 4,
   //   title: "Cineplex Cinema Ticket Booking System",
