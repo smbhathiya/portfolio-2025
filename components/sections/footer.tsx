@@ -40,7 +40,7 @@ export function Footer() {
                 href="#skills"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
-                Skills
+                Teck Stack
               </Link>
               <Link
                 href="#projects"
