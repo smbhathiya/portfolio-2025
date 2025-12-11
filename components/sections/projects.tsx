@@ -1,10 +1,17 @@
-"use client"
+"use client";
 
-import projectsData from "@/data/projects"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { IconBrandGithub, IconExternalLink } from "@tabler/icons-react"
+import projectsData from "@/data/projects";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { IconBrandGithub, IconExternalLink } from "@tabler/icons-react";
 
 export function ProjectsSection() {
   const mainProjects = projectsData.slice(0, 3);
@@ -115,8 +122,7 @@ export function ProjectsSection() {
         </div>
 
         <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center mb-16">
-          <div className="inline-flex items-center justify-center p-1.5 bg-secondary/10 backdrop-blur-sm rounded-full mb-2 border border-secondary/20">
-          </div>
+          <div className="inline-flex items-center justify-center p-1.5 bg-secondary/10 backdrop-blur-sm rounded-full mb-2 border border-secondary/20"></div>
           <h3 className="text-2xl md:text-4xl font-bold tracking-tight">
             Other Projects
           </h3>
@@ -217,12 +223,27 @@ export function ProjectsSection() {
                   asChild
                 >
                   <a
-                    href={project.gitUrl || project.previewUrl || "#"}
+                    href={
+                      project.previewUrl && project.previewUrl !== "#"
+                        ? project.previewUrl
+                        : project.gitUrl || "#"
+                    }
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`View ${project.title} project details`}
+                    className="flex items-center gap-2"
                   >
-                    {project.previewUrl && project.previewUrl !== "#" ? "View Demo" : "View Project"}
+                    {project.previewUrl && project.previewUrl !== "#" ? (
+                      <>
+                        <IconExternalLink className="h-4 w-4" />
+                        View Demo
+                      </>
+                    ) : (
+                      <>
+                        <IconBrandGithub className="h-4 w-4" />
+                        View Project
+                      </>
+                    )}
                   </a>
                 </Button>
               </CardFooter>
