@@ -135,7 +135,7 @@ export function HeroSection() {
               </div>
 
               {/* Additional subtle glow effects */}
-              <div className="absolute -inset-6 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 rounded-[4rem] blur-3xl opacity-30 rotate-1" />
+              <div className="absolute -inset-6 bg-gradient-to-r from-yellow-700/50 via-yellow-700/50 to-yellow-700/50 rounded-[4rem] blur-3xl opacity-30 rotate-1" />
             </div>
           </div>
         </div>
