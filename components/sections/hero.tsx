@@ -125,7 +125,7 @@ export function HeroSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent z-10" />
 
                 <Image
-                  src="/bhathiya-lakshan.png"
+                  src="/bhathiya-lakshan-2.png"
                   alt="Profile image"
                   fill
                   className="object-cover"
