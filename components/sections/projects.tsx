@@ -11,11 +11,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { IconBrandGithub, IconExternalLink } from "@tabler/icons-react";
+import {
+  IconBrandGithub,
+  IconExternalLink,
+  IconBuildingSkyscraper,
+} from "@tabler/icons-react";
 
 export function ProjectsSection() {
-  const mainProjects = projectsData.slice(0, 3);
-  const otherProjects = projectsData.slice(3);
+  const mainProjects = projectsData.slice(0, 5);
+  const otherProjects = projectsData.slice(5);
 
   return (
     <section id="projects" className="py-6 md:py-6 relative overflow-hidden">
@@ -33,166 +37,146 @@ export function ProjectsSection() {
           </div>
         </div>
 
-        {/* Main Projects */}
-        <div className="mb-24">
-          {mainProjects.map((project, index) => (
+        {/* Featured Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+          {mainProjects.map((project) => (
             <div
               key={project.id}
-              className={`flex flex-col ${
-                index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-              } gap-12 mb-32 last:mb-0 items-center`}
+              className="group relative flex flex-col items-start p-6 rounded-3xl bg-background/50 backdrop-blur-sm border border-border/40 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 h-full"
             >
-              <div className="w-full lg:w-1/2 relative">
-                <div className="aspect-[16/9] rounded-2xl overflow-hidden border border-border/40 shadow-xl relative group">
-                  <Image
-                    src={project.images[0].replace(
-                      "/source/projects/",
-                      "/projects/"
-                    )} // Use public/projects
-                    alt={project.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-40 group-hover:opacity-70 transition-opacity duration-500" />
-                  {/* <div className="absolute top-4 right-4 flex flex-wrap gap-2 max-w-[70%] justify-end">
-                    {project.tag.slice(0, 3).map((tag, i) => (
-                      <Badge
-                        key={i}
-                        variant="secondary"
-                        className="bg-background/80 backdrop-blur-sm text-foreground border border-primary/20 shadow-sm"
-                      >
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div> */}
+              {/* Top accent line */}
+              <div className="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-primary/20 to-transparent group-hover:via-primary/50 transition-all duration-500" />
+
+              <div className="flex flex-col h-full w-full">
+                {/* Image Section for Non-Internal Main Projects */}
+                {!project.isInternal &&
+                  project.images &&
+                  project.images.length > 0 && (
+                    <div className="w-full aspect-video rounded-2xl overflow-hidden mb-6 border border-border/40 shadow-sm relative">
+                      <Image
+                        src={project.images[0]}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
+                  )}
+
+                <div className="flex justify-between items-start mb-6">
+                  <h3 className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80 group-hover:from-primary group-hover:to-primary/80 transition-all duration-300">
+                    {project.title}
+                  </h3>
+                  {project.isInternal && (
+                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-[10px] font-bold uppercase tracking-wider text-secondary">
+                      <div className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
+                      Proprietary
+                    </div>
+                  )}
                 </div>
-                <div className="absolute -bottom-6 -right-6 w-24 h-24 rounded-full bg-primary/5 blur-2xl -z-10"></div>
-                <div className="absolute -top-6 -left-6 w-32 h-32 rounded-full bg-secondary/5 blur-2xl -z-10"></div>
-              </div>
-              <div className="w-full lg:w-1/2 flex flex-col items-start text-left">
-                <h3 className="text-3xl md:text-4xl font-bold mb-5 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80">
-                  {project.title}
-                </h3>
-                <div className="relative p-6 bg-muted/50 backdrop-blur-sm rounded-xl mb-6 border border-border/40 shadow-sm">
+
+                <div className="relative flex-grow mb-8">
                   <p className="text-muted-foreground text-lg leading-relaxed">
                     {project.description}
                   </p>
                 </div>
-                <div className="flex gap-5">
-                  {project.gitUrl && (
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="rounded-full border-primary/40 hover:border-primary shadow-sm"
-                      asChild
-                    >
-                      <a
-                        href={project.gitUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2"
+
+                <div className="mt-auto flex flex-wrap items-center justify-between gap-4">
+                  <div className="flex gap-4">
+                    {project.gitUrl && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="rounded-full hover:bg-primary/10 hover:text-primary transition-all underline decoration-primary/20 hover:decoration-primary"
+                        asChild
                       >
-                        <IconBrandGithub className="h-5 w-5" />
-                        View Code
-                      </a>
-                    </Button>
-                  )}
-                  {project.previewUrl && project.previewUrl !== "#" && (
-                    <Button
-                      size="lg"
-                      className="rounded-full shadow-md bg-primary/90 hover:bg-primary"
-                      asChild
-                    >
-                      <a
-                        href={project.previewUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2"
+                        <a
+                          href={project.gitUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2"
+                        >
+                          <IconBrandGithub className="h-4 w-4" />
+                          Source
+                        </a>
+                      </Button>
+                    )}
+                    {project.previewUrl && project.previewUrl !== "#" && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="rounded-full hover:bg-primary/10 hover:text-primary transition-all underline decoration-primary/20 hover:decoration-primary"
+                        asChild
                       >
-                        <IconExternalLink className="h-5 w-5" />
-                        Live Demo
-                      </a>
-                    </Button>
-                  )}
+                        <a
+                          href={project.previewUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2"
+                        >
+                          <IconExternalLink className="h-4 w-4" />
+                          Demo
+                        </a>
+                      </Button>
+                    )}
+                  </div>
+
+                  {/* Removed Confidential label as requested */}
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center mb-16">
-          <div className="inline-flex items-center justify-center p-1.5 bg-secondary/10 backdrop-blur-sm rounded-full mb-2 border border-secondary/20"></div>
+        <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center mb-12">
           <h3 className="text-2xl md:text-4xl font-bold tracking-tight">
-            Other Projects
+            Personal Projects & Experiments
           </h3>
         </div>
 
-        {/* Other Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Other Projects Grid with Images */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {otherProjects.map((project) => (
             <Card
               key={project.id}
-              className="group overflow-hidden border-border/40 bg-background/80 backdrop-blur-sm transition-all duration-500 hover:shadow-xl hover:border-primary/30 flex flex-col h-full hover:-translate-y-1"
+              className="group border-border/40 bg-background/40 backdrop-blur-sm transition-all duration-500 hover:shadow-xl hover:border-primary/20 flex flex-col h-full overflow-hidden"
             >
-              <div className="aspect-[16/9] relative">
-                <Image
-                  src={project.images[0].replace(
-                    "/source/projects/",
-                    "/projects/"
-                  )}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                {/* <div className="absolute top-3 right-3 z-20 flex flex-wrap gap-1.5 justify-end">
-                  {project.tag.slice(0, 2).map((tag, i) => (
-                    <Badge
-                      key={i}
-                      variant="secondary"
-                      className="bg-background/80 backdrop-blur-sm text-xs border-primary/20 shadow-sm"
-                    >
-                      {tag}
-                    </Badge>
-                  ))}
-                </div> */}
-              </div>
-              <CardHeader className="p-6 pb-3 relative z-20">
-                <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors duration-300">
-                  {project.title}
-                </CardTitle>
-                <CardDescription className="line-clamp-3 mt-3 text-muted-foreground/90">
+              {!project.isInternal &&
+                project.images &&
+                project.images.length > 0 && (
+                  <div className="aspect-video relative overflow-hidden">
+                    <Image
+                      src={project.images[0]}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all duration-500" />
+                  </div>
+                )}
+              <CardHeader className="p-6">
+                <div className="flex justify-between items-start mb-4">
+                  <CardTitle className="text-lg font-bold group-hover:text-primary transition-colors">
+                    {project.title}
+                  </CardTitle>
+                </div>
+                <CardDescription className="line-clamp-4 text-muted-foreground/90 leading-relaxed">
                   {project.description}
                 </CardDescription>
               </CardHeader>
-              <CardContent className="p-6 pt-0 flex-grow">
-                {/* <div className="flex flex-wrap gap-2 mt-4">
-                  {project.tag.map((tag, i) => (
-                    <Badge
-                      key={i}
-                      variant="outline"
-                      className="px-2 py-0.5 text-xs border-primary/20 text-muted-foreground/80"
-                    >
-                      {tag}
-                    </Badge>
-                  ))}
-                </div> */}
-              </CardContent>
-              <CardFooter className="p-6 pt-2 flex justify-between border-t border-border/30 bg-muted/20">
-                <div className="flex space-x-3">
+              <CardFooter className="p-6 pt-0 mt-auto flex justify-between items-center">
+                <div className="flex space-x-2">
                   {project.gitUrl && (
                     <Button
                       variant="ghost"
-                      size="sm"
-                      className="rounded-full h-9 w-9 p-0"
+                      size="icon"
+                      className="rounded-full h-8 w-8 hover:bg-primary/10 hover:text-primary"
                       asChild
                     >
                       <a
                         href={project.gitUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={`View ${project.title} code on GitHub`}
                       >
                         <IconBrandGithub className="h-4 w-4" />
                       </a>
@@ -201,51 +185,25 @@ export function ProjectsSection() {
                   {project.previewUrl && project.previewUrl !== "#" && (
                     <Button
                       variant="ghost"
-                      size="sm"
-                      className="rounded-full h-9 w-9 p-0"
+                      size="icon"
+                      className="rounded-full h-8 w-8 hover:bg-primary/10 hover:text-primary"
                       asChild
                     >
                       <a
                         href={project.previewUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={`View ${project.title} live demo`}
                       >
                         <IconExternalLink className="h-4 w-4" />
                       </a>
                     </Button>
                   )}
                 </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="rounded-full text-xs"
-                  asChild
-                >
-                  <a
-                    href={
-                      project.previewUrl && project.previewUrl !== "#"
-                        ? project.previewUrl
-                        : project.gitUrl || "#"
-                    }
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`View ${project.title} project details`}
-                    className="flex items-center gap-2"
-                  >
-                    {project.previewUrl && project.previewUrl !== "#" ? (
-                      <>
-                        <IconExternalLink className="h-4 w-4" />
-                        View Demo
-                      </>
-                    ) : (
-                      <>
-                        <IconBrandGithub className="h-4 w-4" />
-                        View Project
-                      </>
-                    )}
-                  </a>
-                </Button>
+                {project.isInternal && (
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/40">
+                    Internal
+                  </span>
+                )}
               </CardFooter>
             </Card>
           ))}
