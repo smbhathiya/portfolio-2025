@@ -22,82 +22,81 @@ export function ProjectsSection() {
   const otherProjects = projectsData.slice(5);
 
   return (
-    <section id="projects" className="py-6 md:py-6 relative overflow-hidden">
+    <section
+      id="projects"
+      className="py-24 md:py-32 relative overflow-hidden bg-mesh/50"
+    >
       <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-        <div className="mx-auto flex max-w-[68rem] flex-col items-center justify-center gap-6 text-center mb-20">
-          <h2 className="font-bold text-4xl sm:text-5xl md:text-6xl">
-            Featured <span className="text-primary">Projects</span>
+        <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-6 text-center mb-24">
+          <h2 className="font-black text-4xl sm:text-5xl md:text-7xl tracking-tighter">
+            Selected <span className="text-primary italic">Works</span>
           </h2>
-          <div className="relative">
-            <p className="max-w-[800px] text-muted-foreground text-lg md:text-xl mt-8 mx-auto">
-              A selection of high-impact applications ranging from internal
-              enterprise systems to highly scalable consumer platforms.
-            </p>
-            <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 w-48 h-1.5 bg-gradient-to-r from-transparent via-primary/30 to-transparent rounded-full"></div>
-          </div>
+          <p className="max-w-[700px] text-muted-foreground text-lg md:text-xl leading-relaxed">
+            Architecting specialized applications for enterprise lifecycle
+            management and scalable consumer platforms.
+          </p>
         </div>
 
         {/* Featured Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
           {mainProjects.map((project) => (
             <div
               key={project.id}
-              className="group relative flex flex-col items-start p-6 rounded-3xl bg-background/50 backdrop-blur-sm border border-border/40 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 h-full"
+              className="group relative flex flex-col items-start p-1 bg-gradient-to-b from-white/10 to-transparent rounded-[2.5rem] transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-2 h-full"
             >
-              {/* Top accent line */}
-              <div className="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-primary/20 to-transparent group-hover:via-primary/50 transition-all duration-500" />
+              <div className="flex flex-col h-full w-full p-8 rounded-[2.3rem] glass relative overflow-hidden">
+                {/* Background decorative blob */}
+                <div className="absolute -right-20 -top-20 w-40 h-40 bg-primary/10 blur-[80px] rounded-full group-hover:bg-primary/20 transition-all duration-1000" />
 
-              <div className="flex flex-col h-full w-full">
                 {/* Image Section for Non-Internal Main Projects */}
                 {!project.isInternal &&
                   project.images &&
                   project.images.length > 0 && (
-                    <div className="w-full aspect-video rounded-2xl overflow-hidden mb-6 border border-border/40 shadow-sm relative">
+                    <div className="w-full aspect-video rounded-[1.5rem] overflow-hidden mb-8 border border-border/40 shadow-sm relative group/img">
                       <Image
                         src={project.images[0]}
                         alt={project.title}
                         fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="object-cover transition-transform duration-1000 group-hover/img:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500" />
                     </div>
                   )}
 
-                <div className="flex justify-between items-start mb-6">
-                  <h3 className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80 group-hover:from-primary group-hover:to-primary/80 transition-all duration-300">
+                <div className="flex justify-between items-start mb-6 relative z-10">
+                  <h3 className="text-2xl md:text-3xl font-black tracking-tight group-hover:text-primary transition-colors duration-300 leading-tight pr-4">
                     {project.title}
                   </h3>
                   {project.isInternal && (
-                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-[10px] font-bold uppercase tracking-wider text-secondary">
-                      <div className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
+                    <div className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-[9px] font-black uppercase tracking-wider text-primary">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                       Proprietary
                     </div>
                   )}
                 </div>
 
-                <div className="relative flex-grow mb-8">
-                  <p className="text-muted-foreground text-lg leading-relaxed">
+                <div className="relative flex-grow mb-10 z-10">
+                  <p className="text-muted-foreground text-lg leading-relaxed line-clamp-4">
                     {project.description}
                   </p>
                 </div>
 
-                <div className="mt-auto flex flex-wrap items-center justify-between gap-4">
+                <div className="mt-auto flex flex-wrap items-center justify-between gap-6 relative z-10">
                   <div className="flex gap-4">
                     {project.gitUrl && (
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="rounded-full hover:bg-primary/10 hover:text-primary transition-all underline decoration-primary/20 hover:decoration-primary"
+                        className="rounded-full px-5 hover:bg-primary/10 hover:text-primary transition-all font-bold group/btn"
                         asChild
                       >
                         <a
                           href={project.gitUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2"
                         >
-                          <IconBrandGithub className="h-4 w-4" />
-                          Source
+                          <IconBrandGithub className="h-4 w-4 mr-2 group-hover/btn:rotate-12 transition-transform" />
+                          Codebase
                         </a>
                       </Button>
                     )}
@@ -105,108 +104,106 @@ export function ProjectsSection() {
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="rounded-full hover:bg-primary/10 hover:text-primary transition-all underline decoration-primary/20 hover:decoration-primary"
+                        className="rounded-full px-5 hover:bg-primary/10 hover:text-primary transition-all font-bold group/btn"
                         asChild
                       >
                         <a
                           href={project.previewUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2"
                         >
-                          <IconExternalLink className="h-4 w-4" />
-                          Demo
+                          <IconExternalLink className="h-4 w-4 mr-2 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                          Interactive
                         </a>
                       </Button>
                     )}
                   </div>
-
-                  {/* Removed Confidential label as requested */}
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center mb-12">
-          <h3 className="text-2xl md:text-4xl font-bold tracking-tight">
-            Personal Projects & Experiments
-          </h3>
-        </div>
+        <div className="flex flex-col items-center gap-16">
+          <div className="flex flex-col items-center gap-4 text-center">
+            <h3 className="text-2xl md:text-4xl font-black tracking-tight">
+              Personal <span className="text-primary italic">Projects</span>
+            </h3>
+            <div className="w-24 h-1 bg-primary/20 rounded-full" />
+          </div>
 
-        {/* Other Projects Grid with Images */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {otherProjects.map((project) => (
-            <Card
-              key={project.id}
-              className="group border-border/40 bg-background/40 backdrop-blur-sm transition-all duration-500 hover:shadow-xl hover:border-primary/20 flex flex-col h-full overflow-hidden"
-            >
-              {!project.isInternal &&
-                project.images &&
-                project.images.length > 0 && (
-                  <div className="aspect-video relative overflow-hidden">
-                    <Image
-                      src={project.images[0]}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all duration-500" />
-                  </div>
-                )}
-              <CardHeader className="p-6">
-                <div className="flex justify-between items-start mb-4">
-                  <CardTitle className="text-lg font-bold group-hover:text-primary transition-colors">
+          {/* Other Projects Grid with Images */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+            {otherProjects.map((project) => (
+              <Card
+                key={project.id}
+                className="group border-border/40 bg-background/40 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 hover:border-primary/20 flex flex-col h-full overflow-hidden rounded-[2rem]"
+              >
+                {!project.isInternal &&
+                  project.images &&
+                  project.images.length > 0 && (
+                    <div className="aspect-video relative overflow-hidden m-2 rounded-[1.5rem]">
+                      <Image
+                        src={project.images[0]}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all duration-700" />
+                    </div>
+                  )}
+                <CardHeader className="p-8">
+                  <CardTitle className="text-xl font-black group-hover:text-primary transition-colors tracking-tight">
                     {project.title}
                   </CardTitle>
-                </div>
-                <CardDescription className="line-clamp-4 text-muted-foreground/90 leading-relaxed">
-                  {project.description}
-                </CardDescription>
-              </CardHeader>
-              <CardFooter className="p-6 pt-0 mt-auto flex justify-between items-center">
-                <div className="flex space-x-2">
-                  {project.gitUrl && (
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="rounded-full h-8 w-8 hover:bg-primary/10 hover:text-primary"
-                      asChild
-                    >
-                      <a
-                        href={project.gitUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                  <CardDescription className="line-clamp-4 text-muted-foreground/90 leading-relaxed pt-2">
+                    {project.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardFooter className="p-6 pt-0 mt-auto flex justify-between items-center">
+                  <div className="flex space-x-2">
+                    {project.gitUrl && (
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="rounded-full h-8 w-8 hover:bg-primary/10 hover:text-primary"
+                        asChild
                       >
-                        <IconBrandGithub className="h-4 w-4" />
-                      </a>
-                    </Button>
-                  )}
-                  {project.previewUrl && project.previewUrl !== "#" && (
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="rounded-full h-8 w-8 hover:bg-primary/10 hover:text-primary"
-                      asChild
-                    >
-                      <a
-                        href={project.previewUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        <a
+                          href={project.gitUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <IconBrandGithub className="h-4 w-4" />
+                        </a>
+                      </Button>
+                    )}
+                    {project.previewUrl && project.previewUrl !== "#" && (
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="rounded-full h-8 w-8 hover:bg-primary/10 hover:text-primary"
+                        asChild
                       >
-                        <IconExternalLink className="h-4 w-4" />
-                      </a>
-                    </Button>
+                        <a
+                          href={project.previewUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <IconExternalLink className="h-4 w-4" />
+                        </a>
+                      </Button>
+                    )}
+                  </div>
+                  {project.isInternal && (
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/40">
+                      Internal
+                    </span>
                   )}
-                </div>
-                {project.isInternal && (
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/40">
-                    Internal
-                  </span>
-                )}
-              </CardFooter>
-            </Card>
-          ))}
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </section>
