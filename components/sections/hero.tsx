@@ -33,12 +33,16 @@ export function HeroSection() {
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl/none">
                   <span className="text-primary">Bhathiya Lakshan</span>
                 </h1>
+                <p className="text-xl font-semibold text-muted-foreground/80 mt-2">
+                  Full Stack Engineer & Infrastructure Specialist
+                </p>
               </div>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-[600px]">
-                Hi, I&apos;m Bhathiya Lakshan - passionate about breaking down
-                complex user experience problems to craft integrity-focused
-                solutions. I specialize in creating impactful digital
-                experiences that connect and inspire people worldwide.
+                I specialize in architecting high-performance web applications
+                and managing mission-critical digital infrastructure. Currently,
+                I lead technical operations at Ishara Madhushan Online School,
+                delivering robust full-stack solutions for over 50+ employees
+                and thousands of students.
               </p>
             </div>
 

@@ -50,25 +50,26 @@ export function SkillsSection() {
 
   // Backend skills
   const backendSkills = [
+    { name: ".NET / C#", icon: <IconCode className="h-8 w-8" /> },
     { name: "Node.js", icon: <IconBrandNodejs className="h-8 w-8" /> },
     { name: "Express", icon: <IconCode className="h-8 w-8" /> },
     { name: "Python", icon: <IconBrandPython className="h-8 w-8" /> },
-    { name: "GraphQL", icon: <IconBrandGraphql className="h-8 w-8" /> },
-    { name: "MongoDB", icon: <IconBrandMongodb className="h-8 w-8" /> },
     { name: "PostgreSQL", icon: <IconDatabase className="h-8 w-8" /> },
     { name: "MySQL", icon: <IconBrandMysql className="h-8 w-8" /> },
-    { name: "Redis", icon: <IconBrandReddit className="h-8 w-8" /> },
+    { name: "MongoDB", icon: <IconBrandMongodb className="h-8 w-8" /> },
     { name: "Firebase", icon: <IconBrandFirebase className="h-8 w-8" /> },
   ];
 
-  // DevOps and tools
+  // DevOps, Infrastructure and Tools
   const devopsTools = [
-    { name: "Docker", icon: <IconBrandDocker className="h-8 w-8" /> },
-    { name: "AWS", icon: <IconBrandAws className="h-8 w-8" /> },
     { name: "Vercel", icon: <IconBrandVercel className="h-8 w-8" /> },
-    { name: "CI/CD", icon: <IconGitMerge className="h-8 w-8" /> },
+    { name: "Cloudflare", icon: <IconCode className="h-8 w-8" /> }, // Cloudflare icon not in tabler, using IconCode for now
+    { name: "Neon", icon: <IconDatabase className="h-8 w-8" /> }, // Neon icon use Database
+    { name: "PostgreSQL", icon: <IconDatabase className="h-8 w-8" /> },
     { name: "Git", icon: <IconBrandGit className="h-8 w-8" /> },
     { name: "GitHub", icon: <IconBrandGithub className="h-8 w-8" /> },
+    { name: "Docker", icon: <IconBrandDocker className="h-8 w-8" /> },
+    { name: "AWS", icon: <IconBrandAws className="h-8 w-8" /> },
     { name: "VS Code", icon: <IconBrandVscode className="h-8 w-8" /> },
   ];
 
@@ -81,14 +82,8 @@ export function SkillsSection() {
   ];
 
   // Create three rows of skills for the marquee effect moving in opposite directions
-  const rowOneSkills = [
-    ...frontendSkills,
-    ...frontendSkills,
-  ];
-  const rowTwoSkills = [
-    ...backendSkills,
-    ...backendSkills,
-  ];
+  const rowOneSkills = [...frontendSkills, ...frontendSkills];
+  const rowTwoSkills = [...backendSkills, ...backendSkills];
   const rowThreeSkills = [
     ...devopsTools,
     ...otherSkills,

@@ -25,9 +25,9 @@ export function ProjectsSection() {
             Featured <span className="text-primary">Projects</span>
           </h2>
           <div className="relative">
-            <p className="max-w-[75%] text-muted-foreground text-lg md:text-xl mt-8 mx-auto">
-              Showcasing my best work and technical capabilities with a focus on
-              user experience
+            <p className="max-w-[800px] text-muted-foreground text-lg md:text-xl mt-8 mx-auto">
+              A selection of high-impact applications ranging from internal
+              enterprise systems to highly scalable consumer platforms.
             </p>
             <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 w-48 h-1.5 bg-gradient-to-r from-transparent via-primary/30 to-transparent rounded-full"></div>
           </div>

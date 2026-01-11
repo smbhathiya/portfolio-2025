@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Bhathiya Lakshan",
+  title: "Bhathiya Lakshan | Full Stack Engineer & Infrastructure Specialist",
   description:
-    "Welcome to Bhathiya Lakshan's portfolio - Full Stack Developer and Software Engineer. Explore innovative projects including AI Image Generator, Weather App, Bliss Café, and more.",
+    "Professional portfolio of Bhathiya Lakshan - Full Stack Engineer specializing in scalable web architectures, infrastructure management, and technical leadership at IMOS.",
   keywords: [
     "Bhathiya Lakshan",
     "portfolio",

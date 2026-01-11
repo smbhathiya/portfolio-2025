@@ -15,8 +15,8 @@ export function Footer() {
           <div className="space-y-4">
             <h3 className="text-2xl font-bold">Bhathiya Lakshan</h3>
             <p className="text-muted-foreground max-w-xs">
-              Full Stack Developer passionate about creating user-friendly,
-              performant web applications with modern technologies.
+              Lead Software Engineer specializing in scalable full-stack
+              architectures and mission-critical digital infrastructure.
             </p>
           </div>
 
@@ -40,7 +40,7 @@ export function Footer() {
                 href="#skills"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
-                Teck Stack
+                Tech Stack
               </Link>
               <Link
                 href="#projects"

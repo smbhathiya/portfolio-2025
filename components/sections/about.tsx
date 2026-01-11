@@ -22,7 +22,7 @@ export function AboutSection() {
     <section className="py-20 md:py-28 relative overflow-hidden" id="about">
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
         <div className="text-[8rem] text-center md:text-[12rem] lg:text-[16rem] xl:text-[20rem] font-bold text-muted-foreground/3 leading-none whitespace-nowrap">
-          MY <br/> JOURNEY
+          MY <br /> JOURNEY
         </div>
       </div>
       <div className="container px-4 md:px-6 max-w-7xl mx-auto relative z-10">
@@ -31,12 +31,12 @@ export function AboutSection() {
             <h2 className="font-bold text-4xl sm:text-5xl md:text-6xl">
               My <span className="text-primary">Journey</span>
             </h2>
-            <p className="max-w-[600px] text-muted-foreground text-lg md:text-xl leading-relaxed">
-              From academic foundations to hands-on campaigns, my journey in
-              digital marketing has been a blend of strategy, creativity, and
-              constant learning. Each project sharpened my skills and deepened
-              my understanding of how to connect brands with the right audience
-              online.
+            <p className="max-w-[700px] text-muted-foreground text-lg md:text-xl leading-relaxed">
+              My professional path is defined by a deep passion for architecting
+              scalable systems and solving complex technical challenges. From
+              managing full-stack ecosystems to optimizing enterprise-grade
+              infrastructure, I focus on delivering high-impact solutions that
+              empower organizations and enhance user experiences.
             </p>
           </div>
         </div>
