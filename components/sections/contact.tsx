@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
@@ -18,152 +19,140 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-32 md:py-44 relative overflow-hidden">
-      {/* Large background text */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-        <div className="text-[8rem] md:text-[12rem] lg:text-[16rem] xl:text-[20rem] font-bold text-muted-foreground/3 leading-none whitespace-nowrap">
-          CONTACT
+    <section
+      id="contact"
+      className="py-24 md:py-32 relative overflow-hidden bg-mesh"
+    >
+      {/* Background decoration */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+        <div className="text-[15vw] font-black text-primary/5 tracking-tighter leading-none whitespace-nowrap opacity-50">
+          CONNECT
         </div>
       </div>
+
       <div className="container px-4 md:px-6 max-w-7xl mx-auto relative z-10">
-        <div className="mx-auto flex max-w-[68rem] flex-col items-center justify-center gap-8 text-center mb-16">
-          <div className="space-y-4">
-            <h2 className="font-bold text-4xl sm:text-5xl md:text-6xl">
-              Let&apos;s connect
-            </h2>
-            <p className="max-w-[600px] text-muted-foreground text-lg md:text-xl leading-relaxed">
-              Let&apos;s connect and discuss how we can work together on your
-              next project
-            </p>
-          </div>
+        <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-6 text-center mb-24">
+          <h2 className="font-black text-4xl sm:text-5xl md:text-7xl tracking-tighter">
+            Get In <span className="text-primary italic">Touch</span>
+          </h2>
+          <p className="max-w-[700px] text-muted-foreground text-lg md:text-xl leading-relaxed">
+            Interested in collaboration or have a project that needs specialized
+            expertise? Reach out via my professional channels.
+          </p>
         </div>
-        <div className="mx-auto flex flex-col md:flex-row gap-10 items-center justify-center mb-16 max-w-4xl">
+
+        <div className="mx-auto flex flex-col md:flex-row gap-10 items-stretch justify-center mb-16 max-w-5xl">
           {/* Email Card */}
-          <Card className="flex-1 p-8 border-border/40 bg-background/80 backdrop-blur-sm shadow-lg hover:shadow-2xl transition-all duration-300 group hover:scale-105">
-            <div className="flex flex-col items-center gap-6">
-              <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center p-4 border border-primary/30">
-                <IconMail className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Email Me</h3>
-              <p className="text-muted-foreground mb-4 text-center">
-                Send me an email and I&apos;ll get back to you as soon as
-                possible
-              </p>
-              <Button
-                size="lg"
-                onClick={handleEmailClick}
-                className="rounded-full cursor-pointer px-8 py-4 text-lg bg-primary hover:bg-primary/90 shadow-md group-hover:shadow-lg transition-all flex items-center gap-2"
-              >
-                <span>Send Email</span>
-                <IconMail className="h-10 w-10" />
-              </Button>
+          <Card className="flex-1 p-10 border-0 glass shadow-2xl shadow-black/5 hover:shadow-primary/5 transition-all duration-500 group hover:-translate-y-2 rounded-[2.5rem] flex flex-col items-center text-center">
+            <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center p-4 border border-primary/20 mb-8 transition-transform duration-500 group-hover:scale-110">
+              <IconMail className="h-10 w-10 text-primary" />
             </div>
+            <h3 className="text-2xl font-black tracking-tight mb-4">
+              Professional Email
+            </h3>
+            <p className="text-muted-foreground mb-10 leading-relaxed font-medium">
+              For project inquiries, architecture reviews, and high-impact role
+              discussions.
+            </p>
+            <Button
+              size="lg"
+              onClick={handleEmailClick}
+              className="rounded-full w-full h-14 text-lg font-black bg-primary hover:bg-primary/90 shadow-xl shadow-primary/20 transition-all active:scale-95"
+            >
+              info@bhathiya.dev
+            </Button>
           </Card>
+
           {/* WhatsApp Card */}
-          <Card className="flex-1 p-8 border-green-500/20 bg-background/80 backdrop-blur-sm shadow-lg hover:shadow-2xl transition-all duration-300 group hover:scale-105 dark:from-background dark:to-green-950/10">
-            <div className="flex flex-col items-center gap-6">
-              <div className="w-20 h-20 rounded-full bg-green-500/10 flex items-center justify-center p-4 border border-green-500/30">
-                <IconBrandWhatsapp className="h-8 w-8 text-green-500" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">WhatsApp</h3>
-              <p className="text-muted-foreground mb-4 text-center">
-                Message me directly on WhatsApp for a quick response
-              </p>
-              <Button
-                size="lg"
-                asChild
-                className="rounded-full px-8 py-4 text-lg bg-green-500 hover:bg-green-600 shadow-md group-hover:shadow-lg transition-all flex items-center gap-2"
-              >
-                <a
-                  href="https://wa.me/94723095865"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span>Message on WhatsApp</span>
-                  <IconBrandWhatsapp className="h-10 w-10" />
-                </a>
-              </Button>
+          <Card className="flex-1 p-10 border-0 glass shadow-2xl shadow-black/5 hover:shadow-green-500/5 transition-all duration-500 group hover:-translate-y-2 rounded-[2.5rem] flex flex-col items-center text-center">
+            <div className="w-24 h-24 rounded-full bg-green-500/10 flex items-center justify-center p-4 border border-green-500/20 mb-8 transition-transform duration-500 group-hover:scale-110">
+              <IconBrandWhatsapp className="h-10 w-10 text-green-500" />
             </div>
+            <h3 className="text-2xl font-black tracking-tight mb-4">
+              Direct Message
+            </h3>
+            <p className="text-muted-foreground mb-10 leading-relaxed font-medium">
+              Available for quick consultations and urgent technical support.
+            </p>
+            <Button
+              size="lg"
+              asChild
+              className="rounded-full w-full h-14 text-lg font-black bg-green-500 hover:bg-green-600 shadow-xl shadow-green-500/20 transition-all active:scale-95"
+            >
+              <a
+                href="https://wa.me/94723095865"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Message Now
+              </a>
+            </Button>
           </Card>
         </div>
-        {/* Social Links in a Card */}
-        <Card className="mx-auto max-w-2xl mt-16 p-8 bg-background/80 border-border/40 shadow-lg backdrop-blur-sm flex flex-col items-center">
-          <h3 className="text-xl font-semibold mb-8 text-center">
-            Connect With Me On Social Media
-          </h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button
-              variant="outline"
-              size="lg"
-              asChild
-              className="rounded-full h-16 w-16 p-0 border border-primary hover:bg-primary/10 group"
-            >
-              <a
-                href="https://www.linkedin.com/in/bhathiya-lakshan-91579722a/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
-                <IconBrandLinkedin className="h-10 w-10 text-muted-foreground group-hover:text-primary transition-colors" />
-              </a>
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              asChild
-              className="rounded-full h-16 w-16 p-0 border border-primary hover:bg-primary/10 group"
-            >
-              <a
-                href="https://www.facebook.com/smbhathiya"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-              >
-                <IconBrandFacebook className="h-10 w-10 text-muted-foreground group-hover:text-primary transition-colors" />
-              </a>
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              asChild
-              className="rounded-full h-16 w-16 p-0 border border-primary hover:bg-primary/10 group"
-            >
-              <a
-                href="https://x.com/smbhathiya"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter"
-              >
-                <IconBrandTwitter className="h-10 w-10 text-muted-foreground group-hover:text-primary transition-colors" />
-              </a>
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              asChild
-              className="rounded-full h-16 w-16 p-0 border border-primary hover:bg-primary/10 group"
-            >
-              <a
-                href="https://github.com/smbhathiya"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-              >
-                <IconBrandGithub className="h-10 w-10 text-muted-foreground group-hover:text-primary transition-colors" />
-              </a>
-            </Button>
+
+        {/* Social Links Summary */}
+        <div className="mx-auto max-w-2xl mt-24 p-1 rounded-[3rem] bg-gradient-to-r from-primary/20 via-primary/5 to-primary/20">
+          <div className="glass rounded-[2.8rem] p-10 flex flex-col items-center">
+            <h3 className="text-lg font-black uppercase tracking-[0.2em] mb-10 text-primary/60">
+              Digital Presence
+            </h3>
+            <div className="flex flex-wrap justify-center gap-6">
+              {[
+                {
+                  icon: <IconBrandLinkedin className="h-8 w-8" />,
+                  href: "https://www.linkedin.com/in/bhathiya-lakshan-91579722a/",
+                },
+                {
+                  icon: <IconBrandGithub className="h-8 w-8" />,
+                  href: "https://github.com/smbhathiya",
+                },
+                {
+                  icon: <IconBrandTwitter className="h-8 w-8" />,
+                  href: "https://x.com/smbhathiya",
+                },
+                {
+                  icon: <IconBrandFacebook className="h-8 w-8" />,
+                  href: "https://www.facebook.com/smbhathiya",
+                },
+              ].map((social, i) => (
+                <Button
+                  key={i}
+                  variant="outline"
+                  size="icon"
+                  asChild
+                  className="rounded-full w-16 h-16 border-border/40 hover:border-primary/50 hover:bg-primary/5 transition-all duration-500 hover:scale-110 shadow-lg"
+                >
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {React.cloneElement(
+                      social.icon as React.ReactElement<any>,
+                      {
+                        className:
+                          "text-muted-foreground hover:text-primary transition-colors h-8 w-8",
+                      }
+                    )}
+                  </a>
+                </Button>
+              ))}
+            </div>
           </div>
-        </Card>
-        {/* Location */}
-        <div className="mt-16 text-center">
-          <div className="flex items-center justify-center gap-2 text-muted-foreground">
-            <IconMapPin className="h-5 w-5" />
+        </div>
+
+        {/* Location & Copyright */}
+        <div className="mt-24 pb-8 flex flex-col items-center gap-6">
+          <div className="flex items-center gap-3 px-5 py-2.5 rounded-full border border-border/40 bg-background/50 text-sm font-bold text-muted-foreground shadow-sm">
+            <IconMapPin className="h-4 w-4 text-primary" />
             <span>Kadawatha, Sri Lanka</span>
           </div>
+          <p className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground/30">
+            &copy; 2025 Bhathiya Lakshan &bull; All Rights Reserved
+          </p>
         </div>
-        {/* Decorative elements matching other sections */}
-        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-primary/10 to-primary/5 rounded-full blur-3xl opacity-50 -z-10" />
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-tl from-primary/5 to-primary/10 rounded-full blur-3xl opacity-40 -z-10" />
       </div>
     </section>
   );
