@@ -179,6 +179,7 @@ export default function RootLayout({
               "@type": "Person",
               name: "Bhathiya Lakshan",
               url: "https://bhathiya.dev",
+              image: "https://bhathiya.dev/bhathiya-lakshan-2.png",
               jobTitle: "Full Stack Engineer & Infrastructure Specialist",
               worksFor: {
                 "@type": "Organization",

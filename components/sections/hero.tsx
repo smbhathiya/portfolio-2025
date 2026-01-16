@@ -115,7 +115,7 @@ export function HeroSection() {
 
                 <Image
                   src="/bhathiya-lakshan-2.png"
-                  alt="Profile image"
+                  alt="Bhathiya Lakshan - Full Stack Engineer & Infrastructure Specialist"
                   fill
                   className="object-cover transition-transform duration-1000 group-hover:scale-110"
                   priority
