@@ -149,9 +149,9 @@ export function ContactSection() {
             <IconMapPin className="h-4 w-4 text-primary" />
             <span>Kadawatha, Sri Lanka</span>
           </div>
-          <p className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground/30">
+          {/* <p className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground/30">
             &copy; 2025 Bhathiya Lakshan &bull; All Rights Reserved
-          </p>
+          </p> */}
         </div>
       </div>
     </section>
