@@ -20,7 +20,7 @@ export const metadata = {
     "Bhathiya",
     "Bhathiya Lakshan",
     "Bhathiya Lakshan Portfolio",
-    "B hathiya",
+    "Bhathiya",
     "IMOS",
     "Ishara Madhushan Online School",
     "ishara madhushan",
@@ -35,6 +35,12 @@ export const metadata = {
     "Custom Learning Management Systems",
     "Online Education Platform Specialist",
     "Teacher Portal Development",
+    "who is bhathiya lakshan",
+    "what is bhathiya lakshan do",
+    "bhathiya lakshan software engineer",
+    "bhathiya lakshan full stack developer",
+    "bhathiya lakshan sri lanka",
+    "bhathiya lakshan projects",
   ],
   openGraph: {
     title:

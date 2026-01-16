@@ -21,7 +21,8 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "Bhathiya Lakshan | Full Stack Developer & Software Engineer",
-  description: "Bhathiya Lakshan is a Full Stack Developer and Software Engineer with expertise in React, Next.js, TypeScript, and modern web technologies. Lead Software Engineer at Digi Pro Solutions with experience at IMOS and Nanosoft Global.",
+  description:
+    "Bhathiya Lakshan is a Full Stack Developer and Software Engineer with expertise in React, Next.js, TypeScript, and modern web technologies. Lead Software Engineer at Digi Pro Solutions with experience at IMOS and Nanosoft Global.",
   keywords: [
     "Bhathiya Lakshan",
     "Full Stack Developer",
@@ -42,7 +43,10 @@ export const metadata: Metadata = {
     "Bliss Café",
     "Digi Pro Solutions",
     "IMOS",
-    "Sri Lanka Developer"
+    "Sri Lanka Developer",
+    "who is bhathiya lakshan",
+    "what does bhathiya lakshan do",
+    "bhathiya lakshan developer",
   ],
   authors: [{ name: "Bhathiya Lakshan" }],
   creator: "Bhathiya Lakshan",
@@ -58,7 +62,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Bhathiya Lakshan | Full Stack Developer & Software Engineer",
-    description: "Bhathiya Lakshan is a Full Stack Developer and Software Engineer with expertise in React, Next.js, TypeScript, and modern web technologies.",
+    description:
+      "Bhathiya Lakshan is a Full Stack Developer and Software Engineer with expertise in React, Next.js, TypeScript, and modern web technologies.",
     url: "https://bhathiya.dev",
     siteName: "Bhathiya Lakshan ",
     images: [
@@ -76,7 +81,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Bhathiya Lakshan | Full Stack Developer & Software Engineer",
-    description: "Bhathiya Lakshan is a Full Stack Developer and Software Engineer with expertise in React, Next.js, TypeScript, and modern web technologies.",
+    description:
+      "Bhathiya Lakshan is a Full Stack Developer and Software Engineer with expertise in React, Next.js, TypeScript, and modern web technologies.",
     site: "@smbhathiya",
     creator: "@smbhathiya",
     images: ["/cover.png"],
@@ -127,10 +133,27 @@ export default function RootLayout({
       <head>
         {/* Favicon and icons */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=5"
+        />
         <meta name="theme-color" content="#000000" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -139,10 +162,39 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
-        
+
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Bhathiya Lakshan",
+              url: "https://bhathiya.dev",
+              jobTitle: "Full Stack Engineer & Infrastructure Specialist",
+              worksFor: {
+                "@type": "Organization",
+                name: "Ishara Madhushan Online School (IMOS)",
+              },
+              sameAs: [
+                "https://github.com/smbhathiya",
+                "https://www.linkedin.com/in/bhathiya-lakshan-91579722a/",
+                "https://x.com/smbhathiya",
+                "https://www.facebook.com/smbhathiya",
+              ],
+              description:
+                "Bhathiya Lakshan is a Lead Software Engineer and Infrastructure Specialist based in Sri Lanka, specializing in Next.js, PostgreSQL, and cloud architecture.",
+            }),
+          }}
+        />
       </head>
       <body
         className={`${inter.variable} ${poppins.variable} ${playfair.variable} antialiased font-sans`}

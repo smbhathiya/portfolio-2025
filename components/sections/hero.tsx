@@ -106,8 +106,8 @@ export function HeroSection() {
           <div className="flex items-center justify-center w-full lg:justify-end">
             <div className="relative group">
               {/* Background decorative elements */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/10 rounded-[3rem] blur-2xl scale-110 opacity-60 rotate-3" />
-              <div className="absolute -inset-4 bg-gradient-to-tr from-primary/10 to-transparent rounded-[3rem] blur-xl opacity-40 rotate-2" />
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-900/40 to-yellow-900/10 rounded-[3rem] blur-2xl scale-110 opacity-60 rotate-3" />
+              <div className="absolute -inset-4 bg-gradient-to-tr from-yellow-900/40 to-transparent rounded-[3rem] blur-xl opacity-40 rotate-2" />
 
               {/* Main image container */}
               <div className="relative z-10 w-80 h-96 md:w-96 md:h-[28rem] lg:w-[400px] lg:h-[500px] overflow-hidden rounded-[3rem] border border-white/10 glass shadow-2xl rotate-3 hover:rotate-1 transition-transform duration-300">
