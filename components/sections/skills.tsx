@@ -85,7 +85,7 @@ export function SkillsSection() {
           {[...skills, ...skills].map((skill, index) => (
             <div
               key={`${skill.name}-${index}`}
-              className="flex items-center gap-4 px-8 py-5 rounded-[2rem] glass-card border border-foreground/20 bg-foreground/[0.03] shadow-none transition-all duration-300 hover:scale-105"
+              className="flex items-center gap-4 px-8 py-5 rounded-[2rem] glass-card border border-foreground/20 bg-foreground/[0.03] shadow-sm dark:shadow-none transition-all duration-300 hover:scale-105"
             >
               <span className="text-foreground/70">{skill.icon}</span>
               <span className="text-sm font-black tracking-[0.2em] uppercase">
@@ -165,7 +165,7 @@ export function SkillsSection() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.05 }}
-                    className="flex items-center gap-3 p-4 rounded-2xl glass-card border border-foreground/10 bg-foreground/[0.02]"
+                    className="flex items-center gap-3 p-4 rounded-2xl glass-card border border-foreground/10 bg-foreground/[0.02] shadow-sm dark:shadow-none"
                   >
                     <span className="text-foreground/60 scale-90">
                       {skill.icon}
