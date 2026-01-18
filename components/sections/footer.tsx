@@ -101,7 +101,7 @@ export function Footer() {
           <p className="text-[9px] font-black uppercase tracking-[0.6em] text-center md:text-left">
             © {currentYear} Bhathiya Lakshan
           </p>
-          <div className="flex gap-10">
+          <div className="flex flex-wrap gap-x-10 gap-y-4 justify-center md:justify-end">
             <a
               href="https://github.com/smbhathiya"
               target="_blank"
@@ -125,6 +125,14 @@ export function Footer() {
               className="text-[9px] font-black uppercase tracking-[0.4em] hover:text-foreground transition-colors"
             >
               Twitter (X)
+            </a>
+            <a
+              href="https://www.facebook.com/smbhathiya/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[9px] font-black uppercase tracking-[0.4em] hover:text-foreground transition-colors"
+            >
+              Facebook
             </a>
           </div>
         </div>
