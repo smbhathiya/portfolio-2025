@@ -48,11 +48,8 @@ export function AboutSection() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any }}
           className="flex flex-col items-center mb-32"
         >
-          <Badge className="mb-6 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.3em]">
-            My Story
-          </Badge>
           <h2 className="font-black text-5xl md:text-8xl tracking-tighter uppercase text-center leading-none">
-            Professional <span className="text-highlight">Journey</span>
+            Professional Journey
           </h2>
         </motion.div>
 
