@@ -85,7 +85,7 @@ export function SkillsSection() {
           {[...skills, ...skills].map((skill, index) => (
             <div
               key={`${skill.name}-${index}`}
-              className="flex items-center gap-4 px-8 py-5 rounded-[2rem] glass-card  hover:shadow-primary/20 transition-all duration-300 hover:scale-105"
+              className="flex items-center gap-4 px-8 py-5 rounded-[2rem] glass-card border border-foreground/20 bg-foreground/[0.03] shadow-none transition-all duration-300 hover:scale-105"
             >
               <span className="text-foreground/70">{skill.icon}</span>
               <span className="text-sm font-black tracking-[0.2em] uppercase">
@@ -126,17 +126,58 @@ export function SkillsSection() {
           </h2>
         </motion.div>
 
-        {/* Infinite scrolling marquee rows */}
-        <div className="relative">
+        {/* Desktop View: Infinite scrolling marquee rows */}
+        <div className="hidden lg:block relative">
           {/* Gradient masks for smooth fade */}
-          <div className="absolute left-0 top-0 z-20 h-full w-20 md:w-40 bg-gradient-to-r from-background via-background/80 to-transparent pointer-events-none" />
-          <div className="absolute right-0 top-0 z-20 h-full w-20 md:w-40 bg-gradient-to-l from-background via-background/80 to-transparent pointer-events-none" />
+          <div className="absolute left-0 top-0 z-20 h-full w-40 bg-gradient-to-r from-background via-background/80 to-transparent pointer-events-none" />
+          <div className="absolute right-0 top-0 z-20 h-full w-40 bg-gradient-to-l from-background via-background/80 to-transparent pointer-events-none" />
 
-          <div className="space-y-8 md:space-y-10">
+          <div className="space-y-10">
             <MarqueeRow skills={row1} direction="normal" />
             <MarqueeRow skills={row2} direction="reverse" />
             <MarqueeRow skills={row3} direction="normal" />
           </div>
+        </div>
+
+        {/* Mobile View: Organized Grid */}
+        <div className="lg:hidden space-y-12">
+          {[
+            { title: "Frontend & Core", skills: row1 },
+            { title: "Backend & Systems", skills: row2 },
+            { title: "DevOps & Cloud", skills: row3 },
+          ].map((category, catIndex) => (
+            <motion.div
+              key={category.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: catIndex * 0.1 }}
+              className="space-y-6"
+            >
+              <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground/50 ml-2">
+                {category.title}
+              </h3>
+              <div className="grid grid-cols-2 gap-4">
+                {category.skills.map((skill: any, i: number) => (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05 }}
+                    className="flex items-center gap-3 p-4 rounded-2xl glass-card border border-foreground/10 bg-foreground/[0.02]"
+                  >
+                    <span className="text-foreground/60 scale-90">
+                      {skill.icon}
+                    </span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest truncate">
+                      {skill.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
