@@ -105,7 +105,7 @@ export function SkillsSection() {
     >
       {/* Background large text "STACK" */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-        <h2 className="text-[18vw] font-black text-foreground/[0.03] tracking-tighter leading-none whitespace-nowrap transform -translate-y-12">
+        <h2 className="text-[18vw] font-black text-foreground/[0.03] tracking-tighter leading-none whitespace-nowrap transform -translate-y-0">
           TEC STACK
         </h2>
       </div>

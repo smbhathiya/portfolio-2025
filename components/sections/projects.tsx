@@ -45,7 +45,14 @@ export function ProjectsSection() {
       id="projects"
       className="py-24 md:py-32 relative overflow-hidden bg-background"
     >
-      <div className="container px-4 md:px-6 max-w-7xl mx-auto relative z-10">
+      {/* Background large text "WORKS" - Similar to Skills section */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+        <h2 className="text-[16vw] font-black text-foreground/[0.03] tracking-tighter leading-none whitespace-nowrap transform -translate-y-80">
+          MY WORKS
+        </h2>
+      </div>
+
+      <div className="container px-4 md:px-6 max-w-8xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -53,89 +60,95 @@ export function ProjectsSection() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any }}
           className="flex flex-col items-center mb-32"
         >
-          <Badge className="mb-6 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.3em]">
-            My Creations
-          </Badge>
           <h2 className="font-black text-5xl md:text-8xl tracking-tighter uppercase text-center leading-none">
-            Featured <span className="text-highlight">Projects</span>
+            Featured Projects
           </h2>
         </motion.div>
 
-        {/* Featured Projects Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-32"
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 mb-48"
         >
-          {mainProjects.map((project) => (
+          {mainProjects.map((project, index) => (
             <motion.div
               key={project.id}
               variants={itemVariants}
-              className="group relative flex flex-col h-full overflow-hidden"
+              whileHover={{ y: -10 }}
+              className="group relative flex flex-col h-full"
             >
-              <div className="flex flex-col h-full w-full p-2 rounded-[3.5rem] glass-card relative overflow-hidden transition-all duration-700 hover:bg-white/[0.04] hover:scale-[1.01]">
+              {/* Index & Metadata Header */}
+              <div className="flex items-center gap-4 mb-6 opacity-30 group-hover:opacity-100 transition-opacity">
+                <span className="text-sm font-black tracking-widest leading-none">
+                  0{index + 1}
+                </span>
+                <div className="h-px flex-grow bg-foreground/10" />
+                <div className="flex gap-3">
+                  {project.tag?.slice(1, 3).map((t: string) => (
+                    <span
+                      key={t}
+                      className="text-[9px] font-black uppercase tracking-[0.3em]"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex flex-col h-full w-full p-4 md:p-6 rounded-[2.5rem] glass-card border border-foreground/10 bg-foreground/[0.02] shadow-sm dark:shadow-none transition-all duration-700 hover:border-foreground/20 hover:shadow-2xl hover:shadow-foreground/5">
                 {/* Image Section */}
                 {!project.isInternal &&
                   project.images &&
                   project.images.length > 0 && (
-                    <div className="w-full aspect-[16/10] rounded-[3rem] overflow-hidden mb-8 border border-white/5 relative group/img">
+                    <div className="w-full aspect-[16/10] rounded-[1.8rem] overflow-hidden mb-8 border border-foreground/5 relative">
                       <Image
                         src={project.images[0]}
                         alt={project.title}
                         fill
-                        className="object-cover transition-transform duration-1000 group-hover/img:scale-110"
+                        className="object-cover grayscale brightness-[0.8] transition-all duration-1000 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                     </div>
                   )}
 
-                <div className="px-8 pb-10 flex flex-col flex-grow">
-                  <div className="flex justify-between items-start mb-6">
-                    <h3 className="text-3xl font-black tracking-tight uppercase group-hover:text-primary transition-colors duration-300">
-                      {project.title}
-                    </h3>
-                  </div>
+                <div className="px-2 md:px-4 flex flex-col flex-grow">
+                  <h3 className="text-3xl md:text-3xl font-black tracking-tighter uppercase mb-4 leading-[1.1]">
+                    {project.title}
+                  </h3>
 
                   <p className="text-muted-foreground font-medium text-lg leading-relaxed mb-8 flex-grow">
                     {project.description}
                   </p>
 
-                  <div className="flex gap-4">
+                  <div className="flex items-center gap-6 pt-6 border-t border-foreground/5 mt-auto">
                     {project.gitUrl && (
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="rounded-full px-6 py-5 hover:bg-primary hover:text-primary-foreground transition-all duration-500 font-black uppercase tracking-widest text-[10px] border border-white/10"
-                        asChild
+                      <a
+                        href={project.gitUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] hover:text-primary transition-colors group/link"
                       >
-                        <a
-                          href={project.gitUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <IconBrandGithub className="h-4 w-4 mr-2" />
-                          Source
-                        </a>
-                      </Button>
+                        <IconBrandGithub className="h-5 w-5 transition-transform group-hover/link:-translate-y-1" />
+                        Source
+                      </a>
                     )}
                     {project.previewUrl && project.previewUrl !== "#" && (
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="rounded-full px-6 py-5 bg-primary text-primary-foreground border-0 hover:opacity-90 transition-all duration-500 font-black uppercase tracking-widest text-[10px] shadow-xl shadow-primary/20"
-                        asChild
+                      <a
+                        href={project.previewUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] px-8 py-4 bg-foreground text-background rounded-full hover:opacity-90 transition-all shadow-xl shadow-foreground/10"
                       >
-                        <a
-                          href={project.previewUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <IconExternalLink className="h-4 w-4 mr-2" />
-                          Live Demo
-                        </a>
-                      </Button>
+                        <IconExternalLink className="h-4 w-4" />
+                        Live Demo
+                      </a>
+                    )}
+                    {project.isInternal && (
+                      <span className="text-[10px] font-black uppercase tracking-[0.3em] opacity-20">
+                        Internal System
+                      </span>
                     )}
                   </div>
                 </div>
@@ -144,16 +157,20 @@ export function ProjectsSection() {
           ))}
         </motion.div>
 
-        <div className="flex flex-col items-center gap-16">
+        {/* Personal Projects Section */}
+        <div className="space-y-20">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col items-center gap-6 text-center mb-12"
+            className="flex flex-col items-center gap-4 text-center"
           >
-            <h3 className="text-3xl md:text-5xl font-black tracking-tight">
-              More <span className="text-primary italic">Projects</span>
+            <h3 className="text-3xl md:text-5xl font-black tracking-tighter uppercase">
+              Personal Projects
             </h3>
+            <p className="text-muted-foreground font-medium tracking-[0.2em] uppercase text-[10px]">
+              Selected previous works and experiments
+            </p>
           </motion.div>
 
           <motion.div
@@ -164,71 +181,62 @@ export function ProjectsSection() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full"
           >
             {otherProjects.map((project) => (
-              <motion.div key={project.id} variants={itemVariants}>
-                <Card className="group glass-card transition-all duration-500 flex flex-col h-full overflow-hidden rounded-[2.5rem] border-0">
+              <motion.div
+                key={project.id}
+                variants={itemVariants}
+                className="h-full"
+              >
+                <div className="group glass-card transition-all duration-700 flex flex-col h-full overflow-hidden rounded-[2rem] border border-foreground/5 bg-foreground/[0.01] hover:border-foreground/20 p-4 shadow-sm dark:shadow-none hover:scale-[1.02]">
                   {!project.isInternal &&
                     project.images &&
                     project.images.length > 0 && (
-                      <div className="aspect-video relative overflow-hidden m-2 rounded-[2rem]">
+                      <div className="aspect-[16/10] relative overflow-hidden rounded-[1.2rem] mb-6">
                         <Image
                           src={project.images[0]}
                           alt={project.title}
                           fill
-                          className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                          className="object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-black/10 transition-all duration-700" />
                       </div>
                     )}
-                  <CardHeader className="p-8">
-                    <CardTitle className="text-xl font-black group-hover:text-primary transition-colors tracking-tight">
+
+                  <div className="px-2 flex flex-col flex-grow">
+                    <h4 className="text-lg font-black uppercase tracking-tight mb-3 transition-colors">
                       {project.title}
-                    </CardTitle>
-                    <CardDescription className="line-clamp-4 text-muted-foreground/90 leading-relaxed pt-2">
+                    </h4>
+                    <p className="line-clamp-3 text-muted-foreground font-medium text-sm leading-relaxed mb-6 flex-grow">
                       {project.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardFooter className="p-8 pt-0 mt-auto flex justify-between items-center">
-                    <div className="flex space-x-3">
+                    </p>
+
+                    <div className="pt-6 border-t border-foreground/5 flex items-center gap-4 transition-opacity mt-auto">
                       {project.gitUrl && (
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          className="rounded-full h-10 w-10 hover:bg-primary/10 hover:text-primary border border-transparent hover:border-primary/20"
-                          asChild
+                        <a
+                          href={project.gitUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-foreground/40 hover:text-foreground transition-colors"
                         >
-                          <a
-                            href={project.gitUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <IconBrandGithub className="h-5 w-5" />
-                          </a>
-                        </Button>
+                          <IconBrandGithub className="h-5 w-5" />
+                        </a>
                       )}
                       {project.previewUrl && project.previewUrl !== "#" && (
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          className="rounded-full h-10 w-10 hover:bg-primary/10 hover:text-primary border border-transparent hover:border-primary/20"
-                          asChild
+                        <a
+                          href={project.previewUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-foreground/40 hover:text-foreground transition-colors"
                         >
-                          <a
-                            href={project.previewUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <IconExternalLink className="h-5 w-5" />
-                          </a>
-                        </Button>
+                          <IconExternalLink className="h-5 w-5" />
+                        </a>
+                      )}
+                      {project.isInternal && (
+                        <span className="text-[9px] font-black uppercase tracking-widest opacity-20 ml-auto">
+                          Internal
+                        </span>
                       )}
                     </div>
-                    {project.isInternal && (
-                      <span className="text-[10px] font-black uppercase tracking-widest text-primary/40">
-                        Internal
-                      </span>
-                    )}
-                  </CardFooter>
-                </Card>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </motion.div>
