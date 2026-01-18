@@ -69,29 +69,30 @@
   --popover: oklch(0.12 0 0);
   --popover-foreground: oklch(0.95 0 0);
 
-  /* Primary - White/Silver in Dark Mode */
-  --primary: oklch(0.95 0 0);
-  --primary-foreground: oklch(0.1 0 0);
+  /* Primary - Pure White/Silver */
+  --primary: oklch(1 0 0);
+  --primary-foreground: oklch(0 0 0);
 
-  --secondary: oklch(0.16 0.02 0);
-  --secondary-foreground: oklch(0.95 0 0);
-  --muted: oklch(0.16 0.02 0);
+  --secondary: oklch(0.15 0 0);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.15 0 0);
   --muted-foreground: oklch(0.6 0 0);
-  --accent: oklch(0.2 0.05 0);
-  --accent-foreground: oklch(0.95 0 0);
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 15%);
+  --accent: oklch(1 0 0);
+  --accent-foreground: oklch(0 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 12%);
   --ring: var(--primary);
 
-  /* Helper components for Mesh Gradient Opacity */
-  --p-l: 0.95;
+  /* Helper components for Mesh Gradient Opacity - Strictly Neutral */
+  --p-l: 1;
   --p-c: 0;
   --p-h: 0;
 }
 
 @layer utilities {
   .bg-mesh {
-    background-image: radial-gradient(
+    background-image:
+      radial-gradient(
         at 0% 0%,
         oklch(var(--p-l) var(--p-c) var(--p-h) / 0.1) 0px,
         transparent 50%
@@ -104,7 +105,20 @@
   }
 
   .glass {
-    @apply backdrop-blur-md bg-background/60 border border-white/10;
+    @apply backdrop-blur-xl bg-background/40 border border-white/5;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-3xl bg-white/[0.03] border border-white/[0.08];
+    background-image: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0.05),
+      transparent
+    );
+  }
+
+  .text-highlight {
+    @apply text-primary italic;
   }
 }
 

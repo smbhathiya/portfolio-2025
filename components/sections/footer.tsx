@@ -1,84 +1,143 @@
 "use client";
 
 import Link from "next/link";
-import { IconHeart } from "@tabler/icons-react";
 import { ScrollToTopButton } from "../ui/scroll-to-top-button";
 import { WhatsAppMessageButton } from "../ui/whatsapp-message-button";
+import { motion } from "framer-motion";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="py-20 border-t border-border/40 relative bg-mesh/10 overflow-hidden">
+    <footer className="py-12 md:py-32 relative overflow-hidden bg-background">
       {/* Background decoration */}
-      <div className="absolute bottom-0 right-0 w-[500px] h-[300px] bg-primary/5 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[300px] bg-foreground/[0.02] blur-[100px] rounded-full pointer-events-none" />
 
       <div className="container px-4 md:px-6 max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          {/* Brand Column */}
-          <div className="col-span-1 md:col-span-2 space-y-6">
-            <h3 className="text-3xl font-black tracking-tighter">
-              Bhathiya <span className="text-primary">Lakshan</span>
-            </h3>
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-md">
-              Architecting high-performance digital ecosystems with a focus on
-              scalability, security, and exceptional user experience.
-            </p>
-          </div>
-
-          {/* Navigation Column */}
-          <div className="space-y-6">
-            <h4 className="text-sm font-black uppercase tracking-[0.3em] text-primary/60">
-              Navigation
-            </h4>
-            <nav className="flex flex-col space-y-3">
-              {[
-                { name: "Home", href: "#home" },
-                { name: "Journey", href: "#about" },
-                { name: "Tech Stack", href: "#skills" },
-                { name: "Portfolio", href: "#projects" },
-                { name: "Contact", href: "#contact" },
-              ].map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium hover:translate-x-1 inline-block"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
-          </div>
-
-          {/* Contact Column */}
-          <div className="space-y-6">
-            <h4 className="text-sm font-black uppercase tracking-[0.3em] text-primary/60">
-              Connect
-            </h4>
-            <div className="flex flex-col space-y-4">
-              <a
-                href="mailto:info@bhathiya.dev"
-                className="text-muted-foreground hover:text-primary transition-colors font-medium"
-              >
-                info@bhathiya.dev
-              </a>
-              <p className="text-muted-foreground font-medium">
-                Kadawatha, Sri Lanka
+        <div className="glass-card rounded-[2.5rem] p-8 md:p-20 border border-foreground/5 bg-foreground/[0.01] mb-12 md:mb-20">
+          <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-24">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6 md:space-y-8 max-w-sm"
+            >
+              <h3 className="text-3xl font-black tracking-tighter uppercase">
+                Bhathiya<span className="text-primary">.</span>
+              </h3>
+              <p className="text-muted-foreground text-sm md:text-lg font-medium leading-relaxed uppercase tracking-tight opacity-60">
+                Software Engineer building modern web applications with clean
+                code and scalable architecture.
               </p>
-            </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-2 gap-12 md:gap-32 w-full lg:w-auto"
+            >
+              <div className="space-y-8">
+                <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-foreground/40">
+                  Sitemap
+                </h4>
+                <nav className="flex flex-col space-y-5">
+                  {[
+                    { name: "Home", href: "#home" },
+                    { name: "About", href: "#about" },
+                    { name: "Skills", href: "#skills" },
+                    { name: "Projects", href: "#projects" },
+                    { name: "Contact", href: "#contact" },
+                  ].map((link) => (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className="text-xs text-muted-foreground hover:text-foreground transition-all duration-300 font-black uppercase tracking-[0.2em] w-fit group"
+                    >
+                      <span className="relative">
+                        {link.name}
+                        <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground transition-all duration-300 group-hover:w-full" />
+                      </span>
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+
+              <div className="space-y-8">
+                <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-foreground/40">
+                  Contact
+                </h4>
+                <div className="flex flex-col space-y-5">
+                  <a
+                    href="mailto:info@bhathiya.dev"
+                    className="text-xs text-muted-foreground hover:text-foreground transition-all duration-300 font-black uppercase tracking-[0.2em] w-fit group"
+                  >
+                    <span className="relative">
+                      Direct Email
+                      <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground transition-all duration-300 group-hover:w-full" />
+                    </span>
+                  </a>
+                  <a
+                    href="https://wa.me/94723095865"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-muted-foreground hover:text-foreground transition-all duration-300 font-black uppercase tracking-[0.2em] w-fit group"
+                  >
+                    <span className="relative">
+                      WhatsApp
+                      <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground transition-all duration-300 group-hover:w-full" />
+                    </span>
+                  </a>
+                  <p className="text-xs text-foreground font-black uppercase tracking-[0.2em]">
+                    Kadawatha, Sri Lanka
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-12 border-t border-border/20 flex flex-col md:flex-row justify-center items-center gap-6">
-          <div className="flex items-center gap-2">
-            <p className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground/40">
-              © {currentYear} Bhathiya Lakshan &bull; All Rights Reserved
-            </p>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 px-4 opacity-30">
+          <p className="text-[9px] font-black uppercase tracking-[0.6em] text-center md:text-left">
+            © {currentYear} Bhathiya Lakshan
+          </p>
+          <div className="flex flex-wrap gap-x-10 gap-y-4 justify-center md:justify-end">
+            <a
+              href="https://github.com/smbhathiya"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[9px] font-black uppercase tracking-[0.4em] hover:text-foreground transition-colors"
+            >
+              Github
+            </a>
+            <a
+              href="https://linkedin.com/in/bhathiya-lakshan-91579722a/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[9px] font-black uppercase tracking-[0.4em] hover:text-foreground transition-colors"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://x.com/smbhathiya"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[9px] font-black uppercase tracking-[0.4em] hover:text-foreground transition-colors"
+            >
+              Twitter (X)
+            </a>
+            <a
+              href="https://www.facebook.com/smbhathiya/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[9px] font-black uppercase tracking-[0.4em] hover:text-foreground transition-colors"
+            >
+              Facebook
+            </a>
           </div>
         </div>
       </div>
 
-      {/* Scroll to top and WhatsApp buttons */}
       <ScrollToTopButton />
       <WhatsAppMessageButton />
     </footer>

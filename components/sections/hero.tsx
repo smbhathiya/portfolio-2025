@@ -2,51 +2,96 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 import {
   IconBrandTwitter,
   IconBrandLinkedin,
   IconBrandGithub,
   IconBrandFacebook,
+  IconArrowRight,
 } from "@tabler/icons-react";
 
 export function HeroSection() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1] as any,
+      },
+    },
+  };
+
+  const floatingTags = [
+    { text: "Scalable Apps", top: "15%", right: "10%" },
+    { text: "+5 Years Experience", top: "10%", right: "-5%" },
+    { text: "Infrastructure", bottom: "15%", right: "15%" },
+    { text: "Full Stack", bottom: "25%", right: "-5%" },
+  ];
+
   return (
     <section
       id="home"
-      className="py-16 md:py-24 flex items-center justify-center min-h-screen relative overflow-hidden bg-mesh"
+      className="pt-32 pb-16 md:pt-48 md:pb-24 flex flex-col items-center justify-center min-h-screen relative overflow-hidden bg-background"
     >
-      {/* Background name text */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-        <div className="text-[12rem] md:text-[16rem] lg:text-[20rem] xl:text-[24rem] font-bold text-muted-foreground/5 leading-none whitespace-nowrap">
+      {/* Background Section Title - Unified positioning */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+        <h2 className="text-[19vw] font-black text-foreground/[0.03] tracking-tighter leading-none whitespace-nowrap transform -translate-y-5">
           BHATHIYA
-        </div>
+        </h2>
       </div>
 
+      {/* Background Orbs - Neutralized */}
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-foreground/[0.03] blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] bg-foreground/[0.02] blur-[100px] rounded-full pointer-events-none" />
+
       <div className="container px-4 md:px-6 max-w-7xl mx-auto relative z-10">
-        <div className="grid gap-16 lg:grid-cols-2 lg:gap-24 xl:gap-32 place-items-center">
-          <div className="flex flex-col justify-center space-y-8 mx-auto w-full max-w-2xl">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid gap-12 lg:grid-cols-2 lg:gap-20 items-center"
+        >
+          {/* Left Content */}
+          <div className="flex flex-col justify-center space-y-10 text-center lg:text-left items-center lg:items-start">
             <div className="space-y-6">
-              <div className="space-y-2">
-                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl/none">
-                  <span className="text-primary">Bhathiya Lakshan</span>
-                </h1>
-                <p className="text-xl font-semibold text-muted-foreground/80 mt-2">
-                  Full Stack Engineer & Infrastructure Specialist
-                </p>
-              </div>
-              <p className="text-muted-foreground text-lg leading-relaxed max-w-[600px]">
-                I specialize in architecting high-performance web applications
-                and managing mission-critical digital infrastructure. Currently,
-                I lead technical operations at Ishara Madhushan Online School,
-                delivering robust full-stack solutions for over 50+ employees
-                and thousands of students.
-              </p>
+              <motion.h1
+                variants={itemVariants}
+                className="text-4xl md:text-5xl lg:text-7xl font-black tracking-tight leading-[1.05] uppercase"
+              >
+                I&apos;m a{" "}
+                <span className="text-highlight">Full Stack Engineer</span> that
+                your system needs
+              </motion.h1>
+              <motion.p
+                variants={itemVariants}
+                className="text-muted-foreground text-xl md:text-2xl font-medium max-w-[500px] mx-auto lg:mx-0 uppercase tracking-tight opacity-70"
+              >
+                Hi, I&apos;m Bhathiya Lakshan. I architect and build resilient
+                digital solutions for growth-focused companies
+              </motion.p>
             </div>
 
-            <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col md:flex-row gap-6 justify-center lg:justify-start items-center"
+            >
               <Button
                 size="lg"
-                className="rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 active:scale-95"
+                className="w-full md:w-auto rounded-full h-14 px-10 text-[11px] font-black uppercase tracking-[0.3em] bg-foreground text-background hover:opacity-90 transition-all shadow-2xl shadow-foreground/10 border-0"
                 onClick={() => {
                   const el = document.getElementById("contact");
                   if (el)
@@ -58,81 +103,143 @@ export function HeroSection() {
               >
                 Let&apos;s Connect
               </Button>
-
-              <div className="flex gap-4">
-                {[
-                  {
-                    icon: <IconBrandTwitter className="h-5 w-5" />,
-                    href: "https://x.com/smbhathiya",
-                    label: "Twitter",
-                  },
-                  {
-                    icon: <IconBrandLinkedin className="h-5 w-5" />,
-                    href: "https://www.linkedin.com/in/bhathiya-lakshan-91579722a/",
-                    label: "LinkedIn",
-                  },
-                  {
-                    icon: <IconBrandGithub className="h-5 w-5" />,
-                    href: "https://github.com/smbhathiya",
-                    label: "GitHub",
-                  },
-                  {
-                    icon: <IconBrandFacebook className="h-5 w-5" />,
-                    href: "https://www.facebook.com/smbhathiya",
-                    label: "Facebook",
-                  },
-                ].map((social, i) => (
-                  <Button
-                    key={i}
-                    variant="ghost"
-                    size="icon"
-                    className="rounded-full border border-border/50 hover:border-primary/50"
-                    asChild
-                  >
-                    <a
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={social.label}
-                    >
-                      {social.icon}
-                    </a>
-                  </Button>
-                ))}
+              <div className="flex items-center gap-5 px-6 py-2 rounded-full border border-foreground/10 bg-foreground/[0.01] backdrop-blur-sm transition-all hover:bg-foreground/[0.03] hover:border-foreground/20">
+                <a
+                  href="https://github.com/smbhathiya"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/30 hover:text-foreground transition-colors"
+                >
+                  <IconBrandGithub className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/bhathiya-lakshan-91579722a/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/30 hover:text-foreground transition-colors"
+                >
+                  <IconBrandLinkedin className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://x.com/smbhathiya"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/30 hover:text-foreground transition-colors"
+                >
+                  <IconBrandTwitter className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://www.facebook.com/smbhathiya/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/30 hover:text-foreground transition-colors"
+                >
+                  <IconBrandFacebook className="h-5 w-5" />
+                </a>
               </div>
-            </div>
+            </motion.div>
           </div>
 
-          <div className="flex items-center justify-center w-full lg:justify-end">
-            <div className="relative group">
-              {/* Background decorative elements */}
-              <div className="absolute inset-0 bg-gradient-to-br from-yellow-900/40 to-yellow-900/10 rounded-[3rem] blur-2xl scale-110 opacity-60 rotate-3" />
-              <div className="absolute -inset-4 bg-gradient-to-tr from-yellow-900/40 to-transparent rounded-[3rem] blur-xl opacity-40 rotate-2" />
-
-              {/* Main image container */}
-              <div className="relative z-10 w-80 h-96 md:w-96 md:h-[28rem] lg:w-[400px] lg:h-[500px] overflow-hidden rounded-[3rem] border border-white/10 glass shadow-2xl rotate-3 hover:rotate-1 transition-transform duration-300">
-                <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent z-10" />
-
-                <Image
-                  src="/bhathiya-lakshan-2.png"
-                  alt="Bhathiya Lakshan - Full Stack Engineer & Infrastructure Specialist"
-                  fill
-                  className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                  priority
-                  sizes="(max-width: 768px) 320px, 400px"
+          {/* Right Content - Glowing Orb */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] as any }}
+            className="relative flex items-center justify-center lg:justify-end"
+          >
+            <div className="relative w-[300px] h-[300px] md:w-[480px] md:h-[480px] flex items-center justify-center group">
+              {/* Animated Ring Waves */}
+              {[...Array(3)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{
+                    opacity: [0, 0.15, 0],
+                    scale: [0.8, 1.8 + i * 0.2],
+                  }}
+                  transition={{
+                    duration: 4,
+                    delay: i * 1.3,
+                    repeat: Infinity,
+                    ease: "easeOut",
+                  }}
+                  className={cn(
+                    "absolute inset-0 rounded-full border border-foreground/20 shadow-[0_0_80px_rgba(255,255,255,0.05)] transition-opacity duration-1000",
+                    "group-hover:opacity-40 group-hover:scale-110",
+                  )}
                 />
+              ))}
+
+              {/* Central Photo Container */}
+              <div className="relative w-[280px] h-[280px] md:w-[400px] md:h-[400px] rounded-full flex items-center justify-center transition-transform duration-700 group-hover:scale-[1.02]">
+                {/* Main Glowing Border - Silver */}
+                <div className="absolute inset-0 rounded-full border-2 md:border-4 border-foreground/10 bg-foreground/[0.02] backdrop-blur-3xl shadow-[0_0_60px_rgba(255,255,255,0.05)] group-hover:border-foreground/20 transition-colors duration-700" />
+
+                {/* Image Container */}
+                <div className="absolute inset-4 rounded-full overflow-hidden border border-foreground/10 bg-black/40 z-10">
+                  <Image
+                    src="/bhathiya-lakshan-2.png"
+                    alt="Bhathiya Lakshan"
+                    fill
+                    className="object-cover transition-all duration-1000 brightness-100 hover:scale-105"
+                    priority
+                  />
+                </div>
+
+                {/* Name Label */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.5, duration: 0.8 }}
+                  className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20"
+                >
+                  <div className="px-6 py-2 rounded-full glass-card border border-foreground/20 bg-background/80 backdrop-blur-xl text-[10px] md:text-[12px] font-black uppercase tracking-[0.4em] text-foreground shadow-2xl whitespace-nowrap">
+                    Bhathiya Lakshan
+                  </div>
+                </motion.div>
               </div>
 
-              {/* Additional glow */}
-              <div className="absolute -inset-6 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 rounded-[4rem] blur-3xl opacity-30 rotate-1" />
+              {/* Floating Tags - Realigned to match new design */}
+              {[
+                { text: "Scalable Apps", top: "15%", right: "8%" },
+                { text: "+2 Years Experience", top: "8%", right: "-8%" },
+                { text: "Infrastructure", bottom: "12%", right: "12%" },
+                { text: "Full Stack", bottom: "22%", right: "-8%" },
+              ].map((tag, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{
+                    delay: 1 + i * 0.1,
+                    duration: 0.8,
+                    ease: [0.16, 1, 0.3, 1] as any,
+                  }}
+                  style={{ top: tag.top, right: tag.right, bottom: tag.bottom }}
+                  className="absolute z-20 pointer-events-none hidden md:block"
+                >
+                  <div className="px-5 py-2.5 rounded-full glass-card border border-foreground/10 bg-foreground/[0.02] text-[10px] font-black uppercase tracking-[0.25em] text-foreground/80 shadow-2xl">
+                    {tag.text}
+                  </div>
+                </motion.div>
+              ))}
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce opacity-40">
-        <div className="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent" />
-      </div>
+
+      {/* Hero Scroll indicator - Refined */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2.5, duration: 1 }}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
+      >
+        <p className="text-[9px] font-black uppercase tracking-[0.6em] text-foreground/20 rotate-90 origin-left translate-x-[5px]">
+          SCROLL
+        </p>
+        <div className="w-px h-16 bg-gradient-to-b from-foreground/20 via-foreground/10 to-transparent" />
+      </motion.div>
     </section>
   );
 }
