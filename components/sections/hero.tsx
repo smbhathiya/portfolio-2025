@@ -87,11 +87,11 @@ export function HeroSection() {
 
             <motion.div
               variants={itemVariants}
-              className="flex gap-6 justify-center lg:justify-start"
+              className="flex flex-col md:flex-row gap-6 justify-center lg:justify-start items-center"
             >
               <Button
                 size="lg"
-                className="rounded-full h-14 px-10 text-[11px] font-black uppercase tracking-[0.3em] bg-foreground text-background hover:opacity-90 transition-all shadow-2xl shadow-foreground/10 border-0"
+                className="w-full md:w-auto rounded-full h-14 px-10 text-[11px] font-black uppercase tracking-[0.3em] bg-foreground text-background hover:opacity-90 transition-all shadow-2xl shadow-foreground/10 border-0"
                 onClick={() => {
                   const el = document.getElementById("contact");
                   if (el)
@@ -103,10 +103,39 @@ export function HeroSection() {
               >
                 Let&apos;s Connect
               </Button>
-              <div className="hidden sm:flex items-center gap-4 px-6 rounded-full border border-foreground/10 bg-foreground/[0.01] backdrop-blur-sm grayscale opacity-40">
-                <IconBrandGithub className="h-5 w-5" />
-                <IconBrandLinkedin className="h-5 w-5" />
-                <IconBrandTwitter className="h-5 w-5" />
+              <div className="flex items-center gap-5 px-6 py-2 rounded-full border border-foreground/10 bg-foreground/[0.01] backdrop-blur-sm transition-all hover:bg-foreground/[0.03] hover:border-foreground/20">
+                <a
+                  href="https://github.com/smbhathiya"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/30 hover:text-foreground transition-colors"
+                >
+                  <IconBrandGithub className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/bhathiya-lakshan-91579722a/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/30 hover:text-foreground transition-colors"
+                >
+                  <IconBrandLinkedin className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://x.com/smbhathiya"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/30 hover:text-foreground transition-colors"
+                >
+                  <IconBrandTwitter className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://www.facebook.com/smbhathiya/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/30 hover:text-foreground transition-colors"
+                >
+                  <IconBrandFacebook className="h-5 w-5" />
+                </a>
               </div>
             </motion.div>
           </div>
@@ -156,6 +185,18 @@ export function HeroSection() {
                     priority
                   />
                 </div>
+
+                {/* Name Label */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.5, duration: 0.8 }}
+                  className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20"
+                >
+                  <div className="px-6 py-2 rounded-full glass-card border border-foreground/20 bg-background/80 backdrop-blur-xl text-[10px] md:text-[12px] font-black uppercase tracking-[0.4em] text-foreground shadow-2xl whitespace-nowrap">
+                    Bhathiya Lakshan
+                  </div>
+                </motion.div>
               </div>
 
               {/* Floating Tags - Realigned to match new design */}
@@ -175,7 +216,7 @@ export function HeroSection() {
                     ease: [0.16, 1, 0.3, 1] as any,
                   }}
                   style={{ top: tag.top, right: tag.right, bottom: tag.bottom }}
-                  className="absolute z-20 pointer-events-none"
+                  className="absolute z-20 pointer-events-none hidden md:block"
                 >
                   <div className="px-5 py-2.5 rounded-full glass-card border border-foreground/10 bg-foreground/[0.02] text-[10px] font-black uppercase tracking-[0.25em] text-foreground/80 shadow-2xl">
                     {tag.text}
