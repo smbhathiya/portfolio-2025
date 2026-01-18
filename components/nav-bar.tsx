@@ -71,13 +71,17 @@ export function NavBar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 pointer-events-none">
-        {/* Logo */}
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-8 py-4 md:py-6 pointer-events-none">
+        {/* Logo - Glass Protected */}
         <motion.div
           initial={{ x: -20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="pointer-events-auto flex items-center gap-2 group cursor-pointer"
+          className={cn(
+            "pointer-events-auto flex items-center gap-2 group cursor-pointer transition-all duration-500",
+            isScrolled &&
+              "glass px-6 py-3 rounded-full border-white/5 bg-white/[0.03] backdrop-blur-2xl shadow-2xl",
+          )}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
           <span className="text-xl font-black tracking-tighter text-foreground uppercase">
@@ -94,82 +98,102 @@ export function NavBar() {
         >
           {navItems.map((item) => (
             <Link
-              key={item.href} // Changed from item.name to item.href
+              key={item.href}
               href={item.href}
               className={cn(
-                // Used cn for conditional classes
                 "relative px-6 py-2.5 text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 rounded-full",
-                activeSection === item.href // Changed from item.href.slice(1) to item.href
+                activeSection === item.href
                   ? "text-primary-foreground"
                   : "text-muted-foreground hover:text-foreground",
               )}
             >
-              {activeSection === item.href && ( // Changed from item.href.slice(1) to item.href
-                <motion.div
-                  layoutId="active-pill" // Changed from navbar-pill to active-pill
-                  className="absolute inset-0 bg-primary rounded-full -z-10 shadow-lg shadow-primary/20"
-                  transition={{ type: "spring", duration: 0.6 }}
-                />
-              )}
-              {item.label} {/* Changed from item.name to item.label */}
+              <AnimatePresence>
+                {activeSection === item.href && (
+                  <motion.div
+                    layoutId="active-pill"
+                    className="absolute inset-0 bg-primary rounded-full -z-10 shadow-lg shadow-primary/20"
+                    transition={{ type: "spring", duration: 0.6 }}
+                  />
+                )}
+              </AnimatePresence>
+              {item.label}
             </Link>
           ))}
         </motion.div>
 
-        {/* Right Actions */}
-        <motion.div
-          initial={{ x: 20, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="flex items-center gap-4 pointer-events-auto"
-        >
-          <div className="hidden md:block">
+        {/* Right Actions - Glass Protected */}
+        <div className="flex items-center gap-3 pointer-events-auto">
+          {/* Desktop Contact Button */}
+          <motion.div
+            initial={{ x: 20, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="hidden md:block"
+          >
             <Button
-              className="rounded-full px-8 h-12 bg-white text-black font-black uppercase tracking-widest text-[10px] hover:opacity-90 transition-all shadow-xl shadow-white/5 border-0"
-              onClick={() => {
-                const el = document.getElementById("contact");
-                if (el)
-                  window.scrollTo({
-                    top: el.offsetTop - 80,
-                    behavior: "smooth",
-                  });
-              }}
+              className={cn(
+                "rounded-full px-8 bg-foreground text-background font-black uppercase tracking-widest text-[10px] hover:bg-foreground/90 transition-all shadow-xl shadow-foreground/5 border-0",
+                isScrolled ? "h-10 px-6" : "h-12 px-8",
+              )}
+              asChild
             >
-              Contact me
+              <a
+                href="https://wa.me/94723095865"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Contact me
+              </a>
             </Button>
-          </div>
-          <ModeToggle />
+          </motion.div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-full hover:bg-primary/10 transition-colors"
-              aria-label="Toggle menu"
-            >
-              <div className="w-6 h-4 relative flex flex-col justify-between">
-                <span
-                  className={cn(
-                    "w-full h-0.5 bg-foreground transition-all duration-300 rounded-full",
-                    isMobileMenuOpen && "rotate-45 translate-y-1.5",
-                  )}
-                />
-                <span
-                  className={cn(
-                    "w-full h-0.5 bg-foreground transition-all duration-300 rounded-full",
-                    isMobileMenuOpen && "opacity-0",
-                  )}
-                />
-                <span
-                  className={cn(
-                    "w-full h-0.5 bg-foreground transition-all duration-300 rounded-full",
-                    isMobileMenuOpen && "-rotate-45 -translate-y-2",
-                  )}
-                />
-              </div>
-            </button>
-          </div>
-        </motion.div>
+          {/* Mobile & Combined Actions Pill */}
+          <motion.div
+            initial={{ x: 20, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className={cn(
+              "flex items-center gap-0.5 p-1 transition-all duration-500",
+              (isScrolled ||
+                (typeof window !== "undefined" && window.innerWidth < 768)) &&
+                "glass rounded-full border-white/5 bg-white/[0.03] backdrop-blur-2xl shadow-2xl",
+            )}
+          >
+            <ModeToggle
+              className="h-9 w-9 bg-transparent hover:bg-white/10 border-0 flex items-center justify-center"
+              iconSize="h-4 w-4"
+            />
+
+            <div className="md:hidden">
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="h-9 w-9 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors"
+                aria-label="Toggle menu"
+              >
+                <div className="w-5 h-3 relative flex flex-col justify-between">
+                  <span
+                    className={cn(
+                      "w-full h-0.5 bg-foreground transition-all duration-300 rounded-full",
+                      isMobileMenuOpen && "rotate-45 translate-y-[5px]",
+                    )}
+                  />
+                  <span
+                    className={cn(
+                      "w-full h-0.5 bg-foreground transition-all duration-300 rounded-full",
+                      isMobileMenuOpen && "opacity-0",
+                    )}
+                  />
+                  <span
+                    className={cn(
+                      "w-full h-0.5 bg-foreground transition-all duration-300 rounded-full",
+                      isMobileMenuOpen && "-rotate-45 -translate-y-[5px]",
+                    )}
+                  />
+                </div>
+              </button>
+            </div>
+          </motion.div>
+        </div>
       </header>
 
       {/* Mobile Menu Overlay */}
