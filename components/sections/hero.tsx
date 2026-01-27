@@ -87,7 +87,7 @@ export function HeroSection() {
 
             <motion.div
               variants={itemVariants}
-              className="flex flex-col md:flex-row gap-6 justify-center lg:justify-start items-center"
+              className="flex flex-col md:flex-row gap-6 justify-center lg:justify-start items-center w-full md:w-auto"
             >
               <Button
                 size="lg"
@@ -103,38 +103,42 @@ export function HeroSection() {
               >
                 Let&apos;s Connect
               </Button>
-              <div className="flex items-center gap-5 px-6 py-2 rounded-full border border-foreground/10 bg-foreground/[0.01] backdrop-blur-sm transition-all hover:bg-foreground/[0.03] hover:border-foreground/20">
+              <div className="w-[90%] md:w-auto flex items-center justify-center gap-4 px-6 h-14 rounded-full border border-foreground/10 bg-foreground/[0.01] backdrop-blur-sm transition-all hover:bg-foreground/[0.03] hover:border-foreground/20 relative z-20 shadow-2xl shadow-foreground/5">
                 <a
                   href="https://github.com/smbhathiya"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground/30 hover:text-foreground transition-colors"
+                  className="p-3 text-foreground/40 hover:text-foreground transition-all hover:scale-110"
+                  aria-label="GitHub"
                 >
-                  <IconBrandGithub className="h-5 w-5" />
+                  <IconBrandGithub className="h-6 w-6" />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/bhathiya-lakshan-91579722a/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground/30 hover:text-foreground transition-colors"
+                  className="p-3 text-foreground/40 hover:text-foreground transition-all hover:scale-110"
+                  aria-label="LinkedIn"
                 >
-                  <IconBrandLinkedin className="h-5 w-5" />
+                  <IconBrandLinkedin className="h-6 w-6" />
                 </a>
                 <a
                   href="https://x.com/smbhathiya"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground/30 hover:text-foreground transition-colors"
+                  className="p-3 text-foreground/40 hover:text-foreground transition-all hover:scale-110"
+                  aria-label="Twitter"
                 >
-                  <IconBrandTwitter className="h-5 w-5" />
+                  <IconBrandTwitter className="h-6 w-6" />
                 </a>
                 <a
                   href="https://www.facebook.com/smbhathiya/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground/30 hover:text-foreground transition-colors"
+                  className="p-3 text-foreground/40 hover:text-foreground transition-all hover:scale-110"
+                  aria-label="Facebook"
                 >
-                  <IconBrandFacebook className="h-5 w-5" />
+                  <IconBrandFacebook className="h-6 w-6" />
                 </a>
               </div>
             </motion.div>
